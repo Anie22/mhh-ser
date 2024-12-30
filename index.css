@@ -31,7 +31,7 @@ ul > li a {
 .home {
     background: #FD853A;
     width: 100%;
-    height: 125svh;
+    height: 115svh;
 }
 .big-circle,
 .big-circle > img{
@@ -93,7 +93,8 @@ textarea{
     height: 320px;
     width: 320px;
 }
-.why-txt-hol div{
+.why-txt-hol div,
+.help-txt div{
     font-family: "Poppins", serif;
 }
 .why-txt-hol div h5{
@@ -104,6 +105,19 @@ textarea{
 }
 .why-txt-hol div p{
     font-size: 17px;
+}
+.help{
+    background: #F57920;
+}
+.help-txt div h5{
+    font-size: 24px;
+}
+.help-txt div h5 span{
+    color: #ffffff;
+}
+.help-txt div p{
+    font-size: 18px;
+    color: #1f1f1f;
 }
 @media only screen and (min-width: 768px) {
     .why-hol{
@@ -134,6 +148,12 @@ textarea{
     .why-hol{
         gap: 0px;
     }
+    .help-txt div h5{
+        font-size: 36px;
+    }
+    .help-txt div p{
+        font-size: 24px;
+    }
 }
 @media only screen and (min-width: 1028px) {
     .in-dual input{
@@ -148,5 +168,8 @@ textarea{
     }
     .why-txt-hol div p{
         font-size: 28px;
+    }
+    .help-txt div h5{
+        font-size: 40px;
     }
 }
