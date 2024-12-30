@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.head-con {
+    height: 70px;
+    z-index: 999;
+}
+.logo-hol{
+    height: 30px !important;
+}
+.log-hol{
+    height: 70px;
+}
+.logo-con > h2, p {
+    font-size: 18px;
+    margin: 0 !important;
+    font-weight: 500;
+}
+.logo-con > p {
+    width: fit-content;
+    background: #F57920;
+    border-radius: 50px;
+}
+ul > li a {
+    font-size: 17px;
+    font-weight: 500;
+}
+.links-hol {
+    z-index: 20;
+}
+.home {
+    background: #FD853A;
+    width: 100%;
+    height: 140vh;
+}
+.big-circle,
+.big-circle > img{
+    height: 540px;
+}
+.big-circle{
+    transform: translateY(70px);
+}
+.small-circle{
+    transform: translateY(67px);
+}
+.hero-form-hol {
+    z-index: 10;
+    height: 100%;
+}
+.con-info > h6 {
+    text-transform: uppercase;
+    font-family: "Work Sans", serif;
+}
+.con-info > h3{
+    font-size: 29px;
+    font-weight: 700;
+    font-family: "Work Sans", serif;
+}
+.con {
+    height: 110px;
+    border-radius: 15px;
+}
+.con div span{
+    font-size: 14px !important;
+    font-family: "Work Sans", serif;
+}
+textarea{
+    height: 130px;
+    resize: none !important;
+    width: 100% !important;
+}
+::placeholder{
+    font-size: 15px;
+    color: #666666;
+    font-family: "Work Sans", serif;
+}
+.button{
+    border: none;
+    background: #373737;
+    border-radius: 50px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    height: 50px;
+    width: 207px;
+    text-transform: capitalize;
+    font-family: "Work Sans", serif;
+}
+.why-hol{
+    gap: 16px;
+}
+.why-hol .img-hol img{
+    height: 320px;
+    width: 320px;
+}
+.why-txt-hol div{
+    font-family: "Poppins", serif;
+}
+.why-txt-hol div h5{
+    font-size: 24px;
+}
+.why-txt-hol div h5 span{
+    color: #FD853A;
+}
+.why-txt-hol div p{
+    font-size: 17px;
+}
+@media only screen and (min-width: 768px) {
+    .why-hol{
+        gap: 0px;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .home {
+        height: 100vh;
+    }
+    .con-info > h3{
+        font-size: 40px;
+        font-weight: 700;
+    }
+    .in-dual input{
+        width: 187px !important;
+    }
+    .why-hol .img-hol img{
+        height: 500px;
+        width: 500px;
+    }
+    .why-txt-hol div h5{
+        font-size: 36px;
+    }
+    .why-txt-hol div p{
+        font-size: 20px;
+    }
+    .why-hol{
+        gap: 0px;
+    }
+}
+@media only screen and (min-width: 1028px) {
+    .in-dual input{
+        width: 230px !important;
+    }
+    .why-hol .img-hol img{
+        height: 600px;
+        width: 600px;
+    }
+    .why-txt-hol div h5{
+        font-size: 48px;
+    }
+    .why-txt-hol div p{
+        font-size: 28px;
+    }
+}
