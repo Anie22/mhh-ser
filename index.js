@@ -3,7 +3,7 @@ const preBut = document.getElementById('prev');
 const nextBut = document.getElementById('next');
 const service = document.getElementById('services');
 const heroHeading = document.getElementById('hero-heading');
-const heroBody = document.getElementById('hero-body')
+const heroBody = document.getElementById('hero-body');
 
 const teamsImg = [
     {img: 'boss.svg'},
@@ -13,7 +13,7 @@ const teamsImg = [
     {img: 'gd.svg'},
     {img: 've.svg'},
     {img: 'fsw.svg'}
-]
+];
 
 const serviceInfo = [
     {name: 'UI/UX designer', des: 'We provide professional UI/UX design services tailored to your needs. From intuitive app interfaces to engaging website designs, we focus on creating user-friendly, visually appealing, and impactful experiences. Our goal is to turn your ideas into designs that captivate and deliver value to your audience.'},
@@ -24,7 +24,7 @@ const serviceInfo = [
     {name: 'Graphic designing', des: 'We bring your ideas to life with our professional graphic design services. Whether it’s logos, branding, social media visuals, or marketing materials, we focus on creating designs that are eye-catching, memorable, and aligned with your vision. Our goal is to help you stand out and make a lasting impression.'},
     {name: 'Video editing', des: 'We transform your raw footage into captivating stories with our professional video editing services. From smooth transitions to engaging effects and sound design, we focus on creating videos that capture attention and convey your message effectively. Our goal is to bring your vision to life and leave a lasting impact on your audience.'},
     {name: 'SMM', des: 'We provide expert social media management, creating engaging content, maintaining consistent branding, and fostering audience interaction. Our goal is to enhance your online presence, grow your following, and drive real results for your brand.'}
-]
+];
 
 teamsImg.forEach(item => {
     const insertImg = `
@@ -34,7 +34,7 @@ teamsImg.forEach(item => {
     `
 
     team.innerHTML += insertImg;
-})
+});
 
 serviceInfo.forEach(con => {
     const insertSer = `
@@ -52,16 +52,15 @@ serviceInfo.forEach(con => {
     `
 
     service.innerHTML += insertSer
-})
-
+});
 
 const cards = document.querySelectorAll('.card-con');
-let currentIndex = 0;
+let curIndexdex = 0;
 const cardTotal = team.scrollWidth - team.offsetWidth;
 const cardWidth = cards[0].offsetWidth;
 
 function activeButtons () {
-    if(currentIndex === 0 || currentIndex < cardTotal) {
+    if(curIndexdex === 0 || curIndexdex < cardTotal) {
         nextBut.classList.add('active')
         nextBut.enable = true
     } else {
@@ -69,7 +68,7 @@ function activeButtons () {
         nextBut.disable = true
     }
 
-    if(currentIndex >= cardTotal) {
+    if(curIndexdex >= cardTotal) {
         preBut.classList.add('active')
         preBut.enable = true
     } else {
@@ -79,22 +78,22 @@ function activeButtons () {
 };
 
 nextBut.addEventListener('click', () => {
-    currentIndex += cardWidth
-    if(currentIndex > cardTotal) currentIndex = cardTotal;
+    curIndexdex += cardWidth
+    if(curIndexdex > cardTotal) curIndexdex = cardTotal;
     const slide = team
-    slide.style.transform = `translateX(-${currentIndex}px)`
+    slide.style.transform = `translateX(-${curIndexdex}px)`
     activeButtons()
 });
 
 preBut.addEventListener('click', () => {
-    currentIndex -= cardWidth
-    if(currentIndex < cardTotal) currentIndex = 0;
+    curIndexdex -= cardWidth
+    if(curIndexdex < 0) curIndexdex = 0;
     const slide = team
-    slide.style.transform = `translateX(-${currentIndex}px)`
+    slide.style.transform = `translateX(-${curIndexdex}px)`
     activeButtons()
 });
 
-activeButtons()
+activeButtons();
 
 // dynamically handle the different content on the hero section
 function changeContent () {
@@ -125,9 +124,6 @@ function changeContent () {
                         <div class="col-lg-5 col-12 p-0">
                             <input class="form-control" type="email" name="email" id="email" placeholder="Email*">
                         </div>
-                    </div>
-                    <div>
-                        <input class="form-control" type="text" name="help" id="help" placeholder="How can we help you?">
                     </div>
                     <div>
                         <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="How can we help you?"></textarea>
@@ -175,3 +171,54 @@ function changeContent () {
 changeContent()
 
 window.addEventListener('resize', changeContent); // pays attension for change in width
+
+const ser = document.querySelectorAll('.servi'); // gets all the cards
+const ser_pre = document.getElementById('prev-ser');
+const ser_next = document.getElementById('next-ser');
+
+let curIndex = 0;
+const cardsPerSlide = 1;
+const cardWidths = ser[0].offsetWidth; // Get the width of one card
+const totalCards = ser.length; // Total number of cards
+
+function serviceButtonState() {
+    // Disable previous button if at the start
+    if (curIndex === 0) {
+        ser_pre.classList.remove('active1');
+        ser_pre.disabled = true;
+    } else {
+        ser_pre.classList.add('active1');
+        ser_pre.disabled = false;
+    }
+
+    // Disable next button if at the end
+    if (curIndex >= totalCards - cardsPerSlide) {
+        ser_next.classList.remove('active1');
+        ser_next.disabled = true;
+    } else {
+        ser_next.classList.add('active1');
+        ser_next.disabled = false;
+    }
+}
+
+function updateCardPositions() {
+    // Apply translateX to all cards based on curIndex
+    ser.forEach((services, i) => {
+        services.style.transform = `translateX(${-curIndex * cardWidths}px)`;
+    });
+}
+
+function nextCardSlide(direction) {
+    // Update curIndex based on direction
+    curIndex = Math.max(0, Math.min(totalCards - cardsPerSlide, curIndex + direction));
+    updateCardPositions();
+    serviceButtonState();
+}
+
+// Initial setup
+updateCardPositions();
+serviceButtonState();
+
+// Event listeners for buttons
+ser_next.addEventListener('click', () => nextCardSlide(1)); // Move to next card
+ser_pre.addEventListener('click', () => nextCardSlide(-1));

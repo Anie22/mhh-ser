@@ -87,6 +87,7 @@ ul li a {
     font-size: 40px;
     font-weight: 700;
     font-family: "Work Sans", serif;
+    line-height: 145%;
 }
 .con-info h4{
     font-size: 29px;
@@ -174,11 +175,12 @@ textarea{
 }
 .servi{
     height: 450px;
-    width: 350px;
+    width: 250px;
     box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
                 inset 7px 7px 0px 0px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
     border: 1px solid hsl(0, 0%, 50%);
+    transition: all 0.5 ease-in;
 }
 .servi:hover{
     border: 1px solid hsl(25, 91%, 54%);
@@ -188,7 +190,7 @@ textarea{
 }
 .servi div {
     font-family: "Poppins", serif;
-    width: 350px;
+    width: 250px;
     padding: 0px 15px;
 }
 .servi div h2{
@@ -198,6 +200,9 @@ textarea{
 .servi div span{
     font-weight: 450;
     font-size: 14px;
+}
+.servi div img{
+    height: 100px;
 }
 .serv-btn-hol button{
     display: flex;
@@ -212,7 +217,7 @@ textarea{
     flex-direction: column;
     font-weight: 400;
 }
-.serv-btn-hol .active{
+.serv-btn-hol .active1{
     background: #F57920;
     color: #ffffff;
 }
@@ -284,6 +289,9 @@ textarea{
     background: #F57920;
     color: #ffffff;
 }
+.contact {
+    background: hsl(25, 91%, 84%);
+}
 .footer-bar{
     background: #424242;
     height: 100%;
@@ -295,12 +303,25 @@ textarea{
     height: 50px;
     width: 50px;
     background: #F57920;
-    left: 12em;
     border-radius: 0 6px 6px 0;
     cursor: pointer;
 }
+.mail-in{
+    border-radius: 7px;
+}
 .mail-in input{
     height: 50px !important;
+}
+.mail-in img{
+    height: 20px;
+}
+@media only screen and (max-width: 500px) {
+    .footer-bar div .lg{
+        height: 32px;
+    }
+    .footer-bar .logo-con h2, p {
+        font-size: 11px;
+    }
 }
 @media only screen and (min-width: 768px) {
     .why-hol{
@@ -323,18 +344,18 @@ textarea{
     }
     .servi{
         height: 450px;
-        width: 540px;
+        width: 395px;
     }
     .servi div {
-        width: 540px;
+        width: 395px;
     }
     .servi div h2{
         font-weight: 550;
-        font-size: 34px;
+        font-size: 26px;
     }
     .servi div span{
         font-weight: 450;
-        font-size: 16px;
+        font-size: 15px;
     }
     .serv h3 {
         font-size: 40px;
