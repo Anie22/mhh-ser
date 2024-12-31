@@ -295,12 +295,13 @@ textarea{
     height: 50px;
     width: 50px;
     background: #F57920;
-    left: 11em;
+    left: 13em;
     border-radius: 0 6px 6px 0;
     cursor: pointer;
 }
-.mail-in{
-    height: 50px;
+.mail-in input{
+    height: 50px !important
+    ;
 }
 @media only screen and (min-width: 768px) {
     .why-hol{
