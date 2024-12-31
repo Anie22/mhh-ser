@@ -1,7 +1,7 @@
 const team = document.getElementById('team');
 const preBut = document.getElementById('prev');
 const nextBut = document.getElementById('next');
-const service = document.getElementById('service');
+const service = document.getElementById('services');
 const heroHeading = document.getElementById('hero-heading');
 const heroBody = document.getElementById('hero-body')
 
