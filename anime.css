@@ -1,0 +1,55 @@
+.hero-ani h6{
+    transition: 1.5s ease-in-out;
+    animation: slideDown 4s linear;
+}
+@keyframes slideDown {
+    from{
+        transform: translateY(-180px);
+    } to {
+        transform: translateY(0px);
+    }
+}
+.hero-ani h3{
+    transition: 1.5s ease-in-out;
+    animation: slideUp 4s linear;
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(950px);
+    } to {
+        transform: translateY(0px);
+    }
+}
+.hero-ani .con{
+    transition: 1.5s ease-in-out;
+    animation: slideRight 5s linear;
+}
+@keyframes slideRight {
+    from {
+        transform: translateX(-950px);
+    } to {
+        transform: translateY(0px);
+    }
+}
+.hero-ani .h4{
+    transition: 1.5s ease-in-out;
+    animation: slideRight 5s linear;
+}
+@keyframes slideRight {
+    from {
+        transform: translateX(-950px);
+    } to {
+        transform: translateY(0px);
+    }
+}
+.hero-ani .con2{
+    transition: 1.5s ease-in-out;
+    animation: slideLeft 5s linear;
+}
+@keyframes slideLeft {
+    from {
+        transform: translateX(950px);
+    } to {
+        transform: translateY(0px);
+    }
+}

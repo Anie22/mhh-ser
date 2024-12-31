@@ -6,6 +6,10 @@
     <link rel="icon" href="logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="anime.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css" integrity="sha512-v8QQ0YQ3H4K6Ic3PJkym91KoeNT5S3PnDKvqnwqFD1oiqIl653crGZplPdU5KKtHjO0QKcQ2aUlQZYjHczkmGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>MHM Service</title>
 </head>
 <body>
@@ -14,7 +18,7 @@
             <section class="col">
                 <header class="w-100 head-con bg-dark position-fixed top-0 bottom-0 start-0 end-0">
                     <nav class="navbar navbar-expand-lg flex-column justify-content-center p-0">
-                        <div class="container-fluid ">
+                        <div class="container-fluid justify-content-lg-between justify-content-end py-lg-0 pt-2">
                             <div class="position-absolute top-0 start-0 bottom-0 end-0 col text-white row m-0 p-0 align-items-center justify-content-lg-center justify-content-start log-hol">
                                 <div class="col-2 d-flex align-items-center gap-2">
                                     <img class="img-fluid logo-hol" src="./logo.svg" alt="logo">
@@ -24,9 +28,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="offcanvas offcanvas-end justify-content-lg-center justify-content-start head-con">
-                                <div class="offcanvas-body d-flex align-items-center col px-5 justify-content-between bg-transparent position-relative links-hol">
-                                    <div class="col-4">
+                            <div class="bar-hol position-relative d-flex d-lg-none flex-column gap-1 p-1 align-items-start justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="z-index: 99; outline: none;">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar bar2"></span>
+                            </div>
+                            <div class="offcanvas offcanvas-end justify-content-lg-center justify-content-start head-con head-con2" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                <div class="offcanvas-header justify-content-end py-3">
+                                    <span class="text-white close-bar d-flex align-items-center rounded-circle justify-content-center" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa fa-times"></i></span>
+                                </div>
+                                <div class="offcanvas-body d-flex align-items-center col px-lg-5 px-3 justify-content-lg-between flex-column flex-lg-row position-relative links-hol">
+                                    <div class="col-lg-4 col-12">
                                         <ul class="navbar-nav justify-content-between flex-grow-1">
                                             <li class="nav-item">
                                                 <a class="nav-link text-white text-capitalize" href="/">Home</a>
@@ -39,13 +51,13 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-12">
                                         <ul class="navbar-nav justify-content-between flex-grow-1">
                                             <li class="nav-item">
                                                 <a class="nav-link text-white text-capitalize" href="/#contact">Contact Us</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link text-white text-capitalize" href="/#team">Our Team</a>
+                                                <a class="nav-link text-white text-capitalize" href="/#teams">Our Team</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link text-white text-capitalize" href="/#why">Why Us</a>
@@ -60,7 +72,7 @@
             </section>
             <section>
                 <div class="overflow-hidden col home position-relative">
-                    <div class="d-lg-flex d-none align-items-end flex-row-reverse col-12 justify-content-between">
+                    <div class="d-flex align-items-end flex-row-reverse col-12 justify-content-between">
                         <div class="big-circle">
                             <img class="img-fluid" src="/big-circle.svg" alt="">
                         </div>
@@ -68,49 +80,35 @@
                             <img src="/small-circle.svg" alt="">
                         </div>
                     </div>
-                    <div class="position-absolute top-0 bottom-0 start-0 end-0 col-12 d-flex justify-content-center align-items-center hero-form-hol py-5 p-2 flex-column gap-4">
-                        <div class="col-lg-5 col-12 mt-5 con-info text-center text-white py-3">
-                            <h6>Contact me</h6>
-                            <h3>Book An  Appointment To Get Started</h3>
+                    <div class="position-absolute top-0 bottom-0 start-0 end-0 col-12 d-flex justify-content-center align-items-center hero-form-hol py-5 p-2 flex-column gap-lg-4 gap-2">
+                        <div class="col-lg-5 col-12 mt-5 con-info text-center text-white py-3 hero-ani" id="hero-heading"></div>
+                        <div class="row p-lg-0 p-2 m-0 gap-4 col-12 container justify-content-center hero-ani" id="hero-body"></div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="p-lg-5 py-4 px-3">
+                    <div class="col-12 row m-0 p-0 gap-3">
+                        <div class="col-12 text-center serv text-capitalize fw-bold">
+                            <h3>Services <span>we provide</span></h3>
                         </div>
-                        <div class="row p-lg-0 p-2 m-0 gap-4 col-12 container justify-content-center">
-                            <div class="col-lg-4 col-12 bg-white p-3 con">
-                                <div class="fw-bold">
-                                    <span>Whats-app:</span>
-                                    <span>+92-3004774414</span>
-                                </div>
-                                <div class="fw-bold">
-                                    <span>Phone:</span>
-                                    <span>+92-322-6933463</span>
-                                </div>
+                        <div class="row p-0 m-0 position-relative gap-lg-4 gap-3">
+                            <div class="overflow-hidden col-12">
+                                <div class="d-flex align-items-start gap-4 p-0" id="service"></div>
                             </div>
-                            <div class="col-lg-5 col-12 p-0">
-                                <form action="" class="col-12 d-flex flex-column gap-2">
-                                    <div class="row m-0 p-0 gap-lg-5 gap-2 col-12 in-dual">
-                                        <div class="col-lg-5 col-12 p-0">
-                                            <input class="form-control" type="text" name="name" id="name" placeholder="name*">
-                                        </div>
-                                        <div class="col-lg-5 col-12 p-0">
-                                            <input class="form-control" type="email" name="email" id="email" placeholder="email*">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <input class="form-control" type="text" name="help" id="help" placeholder="How can we help you?">
-                                    </div>
-                                    <div>
-                                        <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="How can we help you?"></textarea>
-                                    </div>
-                                    <div>
-                                        <button class="button" type="submit">Send message</button>
-                                    </div>
-                                </form>
+                            <div class="col-12 d-flex align-items-center justify-content-center gap-3 serv-btn-hol">
+                                <button type="button" id="prev-ser">
+                                    <i class="fa fa-arrow-left"></i>
+                                </button>
+                                <button type="button" id="next-ser">
+                                    <i class="fa fa-arrow-right"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section></section>
-            <section>
+            <section id="why">
                 <div class="col-12 p-lg-5 p-md-3 px-0 py-4">
                     <div class="why-hol col-12 row p-0 m-0 align-items-center">
                         <div class="img-hol col-md-6 col-12 p-0">
@@ -128,7 +126,7 @@
                 </div>
             </section>
             <section>
-                <div class="help col-12 p-lg-4 px-3 py-4">
+                <div class="help col-12 p-lg-5 px-3 py-4">
                     <div class="help-txt container d-flex flex-column gap-2 p-lg-auto p-0">
                         <div class="text-center">
                             <h5 class="fw-bold">How <span>MHM TECH</span> Can Help <span>Your Business</span> :</h5>
@@ -139,9 +137,57 @@
                     </div>
                 </div>
             </section>
+            <section id="teams">
+                <div class="p-lg-5 py-4 px-3">
+                    <div class="col-12 row m-0 p-0 gap-2">
+                        <div class="d-flex col-12 align-items-center flex-column gap-2 meet-hed">
+                            <div>
+                                <h5 class="text-capitalize fw-normal">Meet our expert team</h5>
+                            </div>
+                            <div>
+                                <h3>Our <span>Team</span></h3>
+                            </div>
+                        </div>
+                        <div class="row p-0 m-0 gap-3 position-relative">
+                            <div class="overflow-hidden">
+                                <div id="team" class="team d-flex gap-2 p-0 align-items-center"></div>
+                            </div>
+                            <div class="col-12 d-flex align-items-center justify-content-center gap-3 btn-hol">
+                                <button type="button" id="prev">
+                                    <i class="fa fa-arrow-left"></i>
+                                </button>
+                                <button type="button" id="next">
+                                    <i class="fa fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section></section>
-            <section></section>
+            <section>
+                <footer class="col-12 d-flex align-items-center justify-content-center">
+                    <div class="footer-bar d-flex p-3 m-0 justify-content-between align-items-lg-center align-items-start col-12 flex-md-row flex-column gap-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="logo.svg" alt="">
+                            <div class="d-flex align-items-center gap-2 logo-con text-white">
+                                <h2 class="m-0">MHM</h2>
+                                <p class="px-2">Service</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end col-lg-3 col-md-5 col-12 position-relative overflow-hidden">
+                            <input class="form-control" type="email" name="email" id="email" placeholder="Email Address">
+                            <div class="text-white fw-bold fs-3 text-center position-absolute top-0 bottom-0 end-0 send-arr d-flex align-items-center justify-content-center">
+                                <img src="Subtract.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </section>
         </div>
     </div>
 </body>
+<script src="index.js"></script>
+<script src="bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

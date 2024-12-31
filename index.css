@@ -5,36 +5,68 @@
     height: 70px;
     z-index: 999;
 }
+.head-con2 {
+    height: 100%;
+    background-color: rgba(33, 37, 41) !important;
+}
 .logo-hol{
     height: 30px !important;
 }
 .log-hol{
     height: 70px;
 }
-.logo-con > h2, p {
+.logo-con h2, p {
     font-size: 18px;
     margin: 0 !important;
     font-weight: 500;
+    font-family: "Urbanist", serif;
 }
-.logo-con > p {
+.logo-con p {
     width: fit-content;
     background: #F57920;
     border-radius: 50px;
 }
-ul > li a {
+ul li a {
     font-size: 17px;
     font-weight: 500;
+    font-family: "Urbanist", serif;
+}
+.nav-link:hover {
+    color: #F57920 !important;
 }
 .links-hol {
     z-index: 20;
 }
+.bar-hol{
+    display: block;
+    background: #F57920;
+    height: 35px;
+    width: 35px;
+    top: 8px;
+    border-radius: 5px;
+}
+.bar-hol .bar{
+    height: 5px;
+    width: 26px;
+    background: #ffffff;
+}
+.bar-hol .bar2{
+    width: 13px;
+}
+.close-bar{
+    background: #F57920;
+    color: #ffffff;
+    height: 30px;
+    width: 30px;
+    font-size: 15px;
+}
 .home {
     background: #FD853A;
     width: 100%;
-    height: 120svh;
+    height: 100svh;
 }
 .big-circle,
-.big-circle > img{
+.big-circle img{
     height: 540px;
 }
 .big-circle{
@@ -47,14 +79,22 @@ ul > li a {
     z-index: 10;
     height: 100%;
 }
-.con-info > h6 {
+.con-info h6 {
     text-transform: uppercase;
     font-family: "Work Sans", serif;
 }
-.con-info > h3{
-    font-size: 29px;
+.con-info h3{
+    font-size: 40px;
     font-weight: 700;
     font-family: "Work Sans", serif;
+}
+.con-info h4{
+    font-size: 29px;
+    font-weight: 700;
+    font-family: "Urbanist", serif;
+}
+.con-info h4 span{
+    color: #282828;
 }
 .con {
     height: 110px;
@@ -64,15 +104,54 @@ ul > li a {
     font-size: 14px !important;
     font-family: "Work Sans", serif;
 }
+input{
+    font-family: "Work Sans", serif;
+}
 textarea{
     height: 130px;
     resize: none !important;
     width: 100% !important;
+    font-family: "Work Sans", serif;
 }
 ::placeholder{
     font-size: 15px;
     color: #666666;
     font-family: "Work Sans", serif;
+}
+.con2{
+    background: #ffffff;
+    height: fit-content;
+    border-radius: 15px;
+}
+.con2 h4{
+    font-family: "Urbanist", serif;
+    font-weight: 700;
+    font-size: 25px;
+}
+.con2 .form .form-control{
+    border-radius: 0px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #4D4D4D;
+}
+.con2 .form .form-control:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: transparent !important;
+    border-bottom: 1px solid #4D4D4D !important;
+}
+.con2 .form input{
+    font-family: "Urbanist", serif;
+}
+.con2 .form input::placeholder{
+    color: #4D4D4D;
+    font-family: "Urbanist", serif;
+}
+.con2 .form button{
+    height: 40px;
+    border-radius: 12px;
+    background: #F57920;
+    font-family: "Urbanist", serif;
 }
 .button{
     border: none;
@@ -86,6 +165,57 @@ textarea{
     text-transform: capitalize;
     font-family: "Work Sans", serif;
 }
+.serv h3 {
+    font-family: "Poppins", serif;
+    font-size: 35px;
+}
+.serv h3 span {
+    color: #FD853A;
+}
+.servi{
+    height: 450px;
+    width: 350px;
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
+                inset 7px 7px 0px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    border: 1px solid hsl(0, 0%, 50%);
+}
+.servi:hover{
+    border: 1px solid hsl(25, 91%, 54%);
+    box-shadow: inset 0px 0px 2px 2px rgba(250, 93, 14, 0.09),
+                inset 7px 7px 0px 0px rgba(255, 66, 14, 0.08);
+    cursor: pointer;
+}
+.servi div {
+    font-family: "Poppins", serif;
+    width: 350px;
+    padding: 0px 15px;
+}
+.servi div h2{
+    font-weight: 550;
+    font-size: 25px;
+}
+.servi div span{
+    font-weight: 450;
+    font-size: 14px;
+}
+.serv-btn-hol button{
+    display: flex;
+    border: 1px solid #F57920;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #F57920;
+    flex-direction: column;
+    font-weight: 400;
+}
+.serv-btn-hol .active{
+    background: #F57920;
+    color: #ffffff;
+}
 .why-hol{
     gap: 16px;
 }
@@ -94,7 +224,8 @@ textarea{
     width: 320px;
 }
 .why-txt-hol div,
-.help-txt div{
+.help-txt div,
+.meet-hed div{
     font-family: "Poppins", serif;
 }
 .why-txt-hol div h5{
@@ -104,7 +235,7 @@ textarea{
     color: #FD853A;
 }
 .why-txt-hol div p{
-    font-size: 17px;
+    font-size: 15px;
 }
 .help{
     background: #F57920;
@@ -119,21 +250,94 @@ textarea{
     font-size: 18px;
     color: #1f1f1f;
 }
+.meet-hed div h3{
+    font-size: 40px;
+    font-weight: 600 !important;
+}
+.meet-hed div h3 span{
+    color: #FD853A;
+}
+.meet-hed div h5{
+    color: #FD853A;
+    font-size: 22px;
+}
+.team .card-con img {
+    width: 268px;
+    height: 410px;
+}
+.btn-hol button{
+    display: flex;
+    border: 1px solid #F57920;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #F57920;
+    flex-direction: column;
+    font-weight: 400;
+}
+.btn-hol .active{
+    background: #F57920;
+    color: #ffffff;
+}
+.footer-bar{
+    background: #424242;
+    height: 100%;
+}
+.footer-bar .div{
+    height: fit-content;
+}
+.send-arr{
+    height: 40px;
+    width: 50px;
+    background: #F57920;
+    left: 10em;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+}
 @media only screen and (min-width: 768px) {
     .why-hol{
         gap: 0px;
     }
 }
 @media only screen and (min-width: 992px) {
+    .head-con2 {
+        height: 70px;
+        background-color: transparent !important;
+    }
     .home {
         height: 100vh;
     }
-    .con-info > h3{
-        font-size: 40px;
-        font-weight: 700;
+    .con2{
+        background: transparent;
     }
     .in-dual input{
         width: 187px !important;
+    }
+    .servi{
+        height: 450px;
+        width: 540px;
+    }
+    .servi div {
+        width: 540px;
+    }
+    .servi div h2{
+        font-weight: 550;
+        font-size: 34px;
+    }
+    .servi div span{
+        font-weight: 450;
+        font-size: 16px;
+    }
+    .serv h3 {
+        font-size: 40px;
+    }
+    .serv-btn-hol button{
+        height: 50px;
+        width: 50px;
+        font-size: 22px;
     }
     .why-hol .img-hol img{
         height: 500px;
@@ -153,6 +357,32 @@ textarea{
     }
     .help-txt div p{
         font-size: 24px;
+    }
+    .meet-hed div h3{
+        font-size: 48px;
+    }
+    .meet-hed div h5{
+        font-size: 25px;
+    }
+    .team .card-con img{
+        width: 405px;
+        height: 550px;
+    }
+    .btn-hol button{
+        height: 50px;
+        width: 50px;
+        font-size: 22px;
+        border: 1px solid #0077FF;
+        color: #0077FF;
+    }
+    .btn-hol .active{
+        background: #0077FF;
+    }
+    .footer-bar{
+        height: 70px;
+    }
+    .footer-bar .div{
+        height: 70px;
     }
 }
 @media only screen and (min-width: 1028px) {
