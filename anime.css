@@ -1,60 +1,66 @@
 .hero-ani h6{
-    transform: translateY(0px);
     transition: all 2.5s ease-in;
-    animation: slideDown 2s linear;
 }
 @keyframes slideDown {
-    from{
+    0%{
         transform: translateY(-180px);
-    } to {
+    } 100% {
         transform: translateY(0px);
     }
 }
 .hero-ani h3{
     transform: translateY(0px);
     transition: all 2.5s ease-in;
-    animation: slideUp 2s linear;
 }
 @keyframes slideUp {
-    from {
+    0% {
         transform: translateY(950px);
-    } to {
+    } 100% {
         transform: translateY(0px);
     }
 }
 .hero-ani .con{
     transition: all 2.5s ease-in;
     animation: slideRight 2s linear;
-    transform: translateX(0px);
 }
 @keyframes slideRight {
-    from {
+    0% {
         transform: translateX(-950px);
-    } to {
+    } 100% {
         transform: translateX(0px);
     }
 }
 .hero-ani .h4{
     transition: all 2.5s ease-in;
     animation: slideRight 2s linear;
-    transform: translateX(0px);
 }
 @keyframes slideRight {
-    from {
+    0% {
         transform: translateX(-950px);
-    } to {
+    } 100% {
         transform: translateX(0px);
     }
 }
 .hero-ani .con2{
     transition: all 2.5s ease-in;
     animation: slideLeft 2s linear;
-    transform: translateX(0px);
 }
 @keyframes slideLeft {
-    from {
+    0% {
         transform: translateX(950px);
-    } to {
+    } 100% {
         transform: translateX(0px);
+    }
+}
+
+.headings-anima{
+    transition: all 0.7s ease;
+    animation: slideDwn 2.5s linear;
+}
+@keyframes slideDwn {
+    0%{
+        transform: translateY(-42px);
+    } 100% {
+        transform: translateY(0px);
     }
 }

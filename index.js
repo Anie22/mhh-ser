@@ -4,6 +4,7 @@ const nextBut = document.getElementById('next');
 const service = document.getElementById('services');
 const heroHeading = document.getElementById('hero-heading');
 const heroBody = document.getElementById('hero-body');
+const whatsApp = document.getElementById('whatsapp')
 
 const teamsImg = [
     {img: 'boss.svg'},
@@ -177,8 +178,8 @@ const ser_pre = document.getElementById('prev-ser');
 const ser_next = document.getElementById('next-ser');
 
 let curIndex = 0;
-const cardsPerSlide = 1;
-const cardWidths = ser[0].offsetWidth; // Get the width of one card
+const cardsPerSlide = 3;
+const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
 const totalCards = ser.length; // Total number of cards
 
 function serviceButtonState() {
@@ -205,6 +206,13 @@ function updateCardPositions() {
     // Apply translateX to all cards based on curIndex
     ser.forEach((services, i) => {
         services.style.transform = `translateX(${-curIndex * cardWidths}px)`;
+
+        // Add or remove the active class based on visibility
+        if (i >= curIndex && i < curIndex + cardsPerSlide - 2 / 1) {
+            services.classList.add('current'); // Add active class to visible cards
+        } else {
+            services.classList.remove('current'); // Remove active class from non-visible cards
+        }
     });
 }
 
@@ -222,3 +230,43 @@ serviceButtonState();
 // Event listeners for buttons
 ser_next.addEventListener('click', () => nextCardSlide(1)); // Move to next card
 ser_pre.addEventListener('click', () => nextCardSlide(-1));
+
+// Checking if an element is in view port
+document.addEventListener("DOMContentLoaded", () => {
+    const headings = document.querySelectorAll('.headings');
+
+    // Create a function to handle visibility
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('headings')) {
+                    entry.target.classList.add('headings-anima'); // Add animation class for headings
+                }
+            } else {
+                // Remove animation classes if needed when the element leaves the viewport
+                
+                if (entry.target.classList.contains('headings')) {
+                    entry.target.classList.remove('headings-anima');
+                }
+                
+            }
+        });
+    };
+
+    // Create an IntersectionObserver instance
+    const observerOptions = {
+        threshold: 0.1 // Adjust as needed to trigger visibility (0.1 = 10% visible)
+    };
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all headings
+    headings.forEach(heading => observer.observe(heading));
+});
+
+whatsApp.addEventListener('click', () => {
+    const phoneNumber = '+913004774414'
+    const msg = 'Good day'
+    const url = `https://wa.me/${phoneNumber}?text=${msg}`;
+
+    window.open(url, '_blank')
+})

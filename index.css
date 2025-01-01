@@ -107,12 +107,15 @@ ul li a {
 }
 input{
     font-family: "Work Sans", serif;
+    height: 50px !important;
+    border-radius: 8px !important;
 }
 textarea{
     height: 130px;
     resize: none !important;
     width: 100% !important;
     font-family: "Work Sans", serif;
+    border-radius: 8px !important;
 }
 ::placeholder{
     font-size: 15px;
@@ -166,6 +169,11 @@ textarea{
     text-transform: capitalize;
     font-family: "Work Sans", serif;
 }
+.button:hover{
+    background: #ffffff;
+    color: #1f1f1f;
+    border: 2px solid #1f1f1f;
+}
 .serv h3 {
     font-family: "Poppins", serif;
     font-size: 35px;
@@ -175,12 +183,12 @@ textarea{
 }
 .servi{
     height: 450px;
-    width: 250px;
+    width: 260px;
     box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
                 inset 7px 7px 0px 0px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
     border: 1px solid hsl(0, 0%, 50%);
-    transition: all 0.5 ease-in;
+    transition: all 0.5s ease-in;
 }
 .servi:hover{
     border: 1px solid hsl(25, 91%, 54%);
@@ -188,21 +196,31 @@ textarea{
                 inset 7px 7px 0px 0px rgba(255, 66, 14, 0.08);
     cursor: pointer;
 }
+.servi.current{
+    animation: show 0.5s linear;
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
 .servi div {
     font-family: "Poppins", serif;
-    width: 250px;
+    width: 260px;
     padding: 0px 15px;
 }
 .servi div h2{
     font-weight: 550;
-    font-size: 25px;
+    font-size: 22px;
 }
 .servi div span{
     font-weight: 450;
-    font-size: 14px;
+    font-size: 13px;
 }
 .servi div img{
-    height: 100px;
+    height: 60px;
 }
 .serv-btn-hol button{
     display: flex;
@@ -226,7 +244,7 @@ textarea{
 }
 .why-hol .img-hol img{
     height: 320px;
-    width: 320px;
+    width: 130px;
 }
 .why-txt-hol div,
 .help-txt div,
@@ -234,14 +252,14 @@ textarea{
     font-family: "Poppins", serif;
 }
 .why-txt-hol div h5{
-    font-size: 24px;
+    font-size: 16px;
     line-height: 140%;
 }
 .why-txt-hol div h5 span{
     color: #FD853A;
 }
 .why-txt-hol div p{
-    font-size: 15px;
+    font-size: 12px;
 }
 .help{
     background: #F57920;
@@ -315,6 +333,70 @@ textarea{
 .mail-in img{
     height: 20px;
 }
+.contact input,
+.contact textarea,
+.contact ::placeholder,
+.contact h3,
+.contact p,
+.contact span,
+.contact button{
+    font-family: "Poppings", serif;
+}
+.contact ::placeholder{
+   font-size: 17px; 
+}
+.contact .button{
+    border-radius: 10px;
+    width: 100%;
+    font-family: "Poppings", serif;
+}
+.contact .button:hover{
+    background: #F57920;
+    border: none;
+    color: #ffffff;
+}
+.contact h3{
+    font-size: 40px;
+    color: #4D4D4D;
+    font-weight: 550;
+}
+.contact p{
+    font-size: 16px;
+    color: #494949;
+    font-weight: 400;
+}
+.contact .cont{
+    font-size: 20px !important;
+    color: #F57920;
+    font-weight: 500;
+}
+.contact .ph{
+    font-weight: 400;
+    font-size: 15px !important;
+}
+.wapp,
+.wapp img{
+    height: 40px;
+}
+.wapp {
+    z-index: 99;
+    bottom: 86px !important;
+    cursor: pointer;
+}
+.wapp div{
+    background: #ffffff;
+    width: 150px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
+                3px 3px 0px 0px rgba(0, 0, 0, 0.08);
+    font-size: 13px;
+    font-family: "Poppins", serif;
+    color: hsl(0, 0%, 65%);
+    font-weight: 500;
+}
+.wapp .sp{
+    color: #373737;
+}
 @media only screen and (max-width: 500px) {
     .footer-bar div .lg{
         height: 32px;
@@ -327,6 +409,15 @@ textarea{
     .why-hol{
         gap: 0px;
     }
+    .why-txt-hol div h5{
+        font-size: 24px;
+    }
+    .why-txt-hol div p{
+        font-size: 15px;
+    }
+    .why-hol .img-hol img {
+        width: 320px;
+    }
 }
 @media only screen and (min-width: 992px) {
     .head-con2 {
@@ -338,6 +429,9 @@ textarea{
     }
     .con2{
         background: transparent;
+    }
+    .why-hol .img-hol img{
+        width: 320px;
     }
     .in-dual input{
         width: 187px !important;
@@ -359,6 +453,9 @@ textarea{
     }
     .serv h3 {
         font-size: 40px;
+    }
+    .servi div img {
+        height: 100px;
     }
     .serv-btn-hol button{
         height: 50px;
@@ -412,6 +509,24 @@ textarea{
     }
     .send-arr{
         left: 10em;
+    }
+    .contact h3{
+        font-size: 50px;
+    }
+    .contact .in-dual input{
+        width: 240px !important;
+    }
+    .contact p{
+        font-size: 20px;
+    }
+    .contact .cont{
+        font-size: 23px !important;
+    }
+    .contact .ph{
+        font-size: 17px !important;
+    }
+    .contact .button{
+        width: 360px;
     }
 }
 @media only screen and (min-width: 1028px) {
