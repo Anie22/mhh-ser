@@ -383,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 whatsApp.addEventListener('click', () => {
-    const phoneNumber = '+913226933463'
+    const phoneNumber = '+923226933463'
     const msg = 'Good day'
     const url = `https://wa.me/${phoneNumber}?text=${msg}`;
 
