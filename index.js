@@ -4,7 +4,8 @@ const nextBut = document.getElementById('next');
 const service = document.getElementById('services');
 const heroHeading = document.getElementById('hero-heading');
 const heroBody = document.getElementById('hero-body');
-const whatsApp = document.getElementById('whatsapp')
+const whatsApp = document.getElementById('whatsapp');
+const navLink = document.querySelectorAll('.nav-item');
 
 const teamsImg = [
     {img: 'boss.svg'},
@@ -63,18 +64,18 @@ const cardWidth = cards[0].offsetWidth;
 
 function activeButtons () {
     if(curIndexdex === 0 || curIndexdex < cardTotal) {
-        nextBut.classList.add('active')
+        nextBut.classList.remove('disable')
         nextBut.enable = true
     } else {
-        nextBut.classList.remove('active')
+        nextBut.classList.add('disable')
         nextBut.disable = true
     }
 
     if(curIndexdex >= cardTotal) {
-        preBut.classList.add('active')
+        preBut.classList.remove('disable')
         preBut.enable = true
     } else {
-        preBut.classList.remove('active')
+        preBut.classList.add('disable')
         preBut.disable = true
     }
 };
@@ -84,7 +85,16 @@ nextBut.addEventListener('click', () => {
     if(curIndexdex > cardTotal) curIndexdex = cardTotal;
     const slide = team
     slide.style.transform = `translateX(-${curIndexdex}px)`
-    activeButtons()
+    
+    if(curIndexdex === 0 || curIndexdex < cardTotal) {
+        nextBut.classList.add('active')
+    } else {
+        nextBut.classList.remove('active')
+        nextBut.classList.add('disable')
+        preBut.classList.remove('disable')
+        preBut.enable = true
+        nextBut.disable = true
+    }
 });
 
 preBut.addEventListener('click', () => {
@@ -92,7 +102,17 @@ preBut.addEventListener('click', () => {
     if(curIndexdex < 0) curIndexdex = 0;
     const slide = team
     slide.style.transform = `translateX(-${curIndexdex}px)`
-    activeButtons()
+    
+    if(curIndexdex >= cardTotal || curIndexdex !== 0) {
+        preBut.classList.add('active')
+        preBut.enable = true
+    } else {
+        preBut.classList.remove('active')
+        preBut.classList.add('disable')
+        nextBut.classList.remove('disable')
+        preBut.disable = true
+        nextBut.enable = true
+    }
 });
 
 activeButtons();
@@ -183,27 +203,32 @@ let cardsPerSlide = 3;
 const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
 const totalCards = ser.length; // Total number of cards
 
+let isDragging = false;
+let startX = 0; // Starting X position of drag
+let currentX = 0; // Current X position during drag
+let translateX = 0; // Tracks the current translateX value
+
 function screenSize() {
     const screen = window.innerWidth;
 
-    if(screen < 800){
-        cardsPerSlide = 2
-    } 
-    
-    if(screen < 745){
-        cardsPerSlide = 1
-    } 
+    if (screen < 800) {
+        cardsPerSlide = 2;
+    }
 
-    updateCardPositions()
+    if (screen < 745) {
+        cardsPerSlide = 1;
+    }
+
+    updateCardPositions();
 }
 
 function serviceButtonState() {
     // Disable previous button if at the start
     if (curIndex === 0) {
-        ser_pre.classList.remove('active1');
+        ser_pre.classList.add('disable');
         ser_pre.disabled = true;
     } else {
-        ser_pre.classList.add('active1');
+        ser_pre.classList.remove('disable');
         ser_pre.disabled = false;
     }
 
@@ -219,15 +244,8 @@ function serviceButtonState() {
 
 function updateCardPositions() {
     // Apply translateX to all cards based on curIndex
-    ser.forEach((services, i) => {
+    ser.forEach((services) => {
         services.style.transform = `translateX(${-curIndex * cardWidths}px)`;
-
-        // Add or remove the active class based on visibility
-        if (i >= curIndex && i < curIndex + cardsPerSlide + 1 - cardsPerSlide / 1) {
-            services.classList.add('current'); // Add active class to visible cards
-        } else {
-            services.classList.remove('current'); // Remove active class from non-visible cards
-        }
     });
 }
 
@@ -235,16 +253,84 @@ function nextCardSlide(direction) {
     // Update curIndex based on direction
     curIndex = Math.max(0, Math.min(totalCards - cardsPerSlide, curIndex + direction));
     updateCardPositions();
-    serviceButtonState();
+}
+
+// Dragging functionality
+function handleDragStart(event) {
+    isDragging = true;
+    startX = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
+    translateX = -curIndex * cardWidths; // Set initial translateX value
+}
+
+function handleDragMove(event) {
+    if (!isDragging) return;
+    const currentPos = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+    const deltaX = currentPos - startX;
+    const dragTranslate = translateX + deltaX;
+
+    ser.forEach((services) => {
+        services.style.transform = `translateX(${dragTranslate}px)`;
+        services.style.transition = 'none'; // Disable transition during drag
+    });
+}
+
+function handleDragEnd(event) {
+    if (!isDragging) return;
+    const endX = event.type === 'touchend' ? event.changedTouches[0].clientX : event.clientX;
+    const deltaX = endX - startX;
+
+    if (deltaX > 50) {
+        // Dragged right
+        nextCardSlide(-1);
+    } else if (deltaX < -50) {
+        // Dragged left
+        nextCardSlide(1);
+    } else {
+        // Return to original position if drag is too small
+        updateCardPositions();
+    }
+
+    isDragging = false;
 }
 
 // Initial setup
-screenSize()
+screenSize();
 updateCardPositions();
+serviceButtonState();
 
 // Event listeners for buttons
-ser_next.addEventListener('click', () => nextCardSlide(1)); // Move to next card
-ser_pre.addEventListener('click', () => nextCardSlide(-1));
+ser_next.addEventListener('click', () => {
+    if (curIndex === 0) {
+        ser_next.classList.add('active1');
+        ser_pre.disabled = true;
+    } else {
+        ser_pre.classList.remove('disable');
+        ser_next.classList.remove('active1');
+        ser_pre.disabled = false;
+    }
+    nextCardSlide(1)
+});
+
+ser_pre.addEventListener('click', () => {
+    if (curIndex >= totalCards - cardsPerSlide) {
+        ser_next.classList.remove('active1');
+        ser_next.disabled = true;
+    } else {
+        ser_next.classList.add('active1');
+        ser_next.disabled = false;
+    }
+    nextCardSlide(-1)
+});
+
+// Drag and touch events
+const cardContainer = document.querySelector('.card-container'); // Assuming the container has class 'card-container'
+cardContainer.addEventListener('mousedown', handleDragStart);
+cardContainer.addEventListener('mousemove', handleDragMove);
+cardContainer.addEventListener('mouseup', handleDragEnd);
+cardContainer.addEventListener('mouseleave', handleDragEnd); // Handle drag end if cursor leaves container
+cardContainer.addEventListener('touchstart', handleDragStart);
+cardContainer.addEventListener('touchmove', handleDragMove);
+cardContainer.addEventListener('touchend', handleDragEnd);
 
 window.addEventListener('resize', screenSize);
 
@@ -302,4 +388,19 @@ whatsApp.addEventListener('click', () => {
     const url = `https://wa.me/${phoneNumber}?text=${msg}`;
 
     window.open(url, '_blank')
+})
+
+const path = window.location.pathname
+
+navLink.forEach(navL => {
+    const herf = navL.querySelector('a').getAttribute('href')
+
+    if(path === herf) {
+        navL.classList.add('active')
+    }
+
+    navL.addEventListener('click', (e) => {
+        navLink.forEach(link => link.classList.remove('active'))
+        navL.classList.add('active')
+    })
 })

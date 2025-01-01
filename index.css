@@ -34,6 +34,12 @@ ul li a {
 .nav-link:hover {
     color: #F57920 !important;
 }
+.nav-item:active {
+    color: #F57920 !important;
+}
+.nav-item.active {
+    color: #F57920 !important;
+}
 .links-hol {
     z-index: 20;
 }
@@ -396,6 +402,10 @@ textarea{
 }
 .mail-in a:hover{
     color: #F57920;
+}
+.disable{
+    border: 1px solid #00000056 !important;
+    color: #00000056 !important;
 }
 @media only screen and (max-width: 500px) {
     .footer-bar div .lg{
