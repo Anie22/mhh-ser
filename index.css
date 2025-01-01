@@ -193,16 +193,7 @@ textarea{
     box-shadow: inset 0px 0px 2px 2px rgba(250, 93, 14, 0.09),
                 inset 7px 7px 0px 0px rgba(255, 66, 14, 0.08);
     cursor: pointer;
-}
-.servi.current{
-    animation: show 0.5s linear;
-}
-@keyframes show {
-    0% {
-        opacity: 0;
-    } 100% {
-        opacity: 1;
-    }
+    transform: scale(1.5);
 }
 .servi div {
     font-family: "Poppins", serif;
@@ -260,18 +251,29 @@ textarea{
     font-size: 12px;
 }
 .help{
-    background: #F57920;
+    background-image: url(./bus.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 90vh;
+}
+.help-txt{
+    height: 100%;
+    background: hsla(0, 0%, 0%, 0.814);
 }
 .help-txt div h5{
     font-size: 24px;
     line-height: 140%;
+}
+.help-txt div h5{
+    color: #FD853A;
 }
 .help-txt div h5 span{
     color: #ffffff;
 }
 .help-txt div p{
     font-size: 18px;
-    color: #1f1f1f;
+    color: #ffffff;
 }
 .meet-hed div h3{
     font-size: 40px;
@@ -322,14 +324,11 @@ textarea{
     border-radius: 0 6px 6px 0;
     cursor: pointer;
 }
-.mail-in{
+.mail-in a{
+    text-decoration: none;
+    font-size: 30px;
     border-radius: 7px;
-}
-.mail-in input{
-    height: 50px !important;
-}
-.mail-in img{
-    height: 20px;
+    color: #ffffff;
 }
 .contact input,
 .contact textarea,
@@ -473,6 +472,9 @@ textarea{
     .why-hol{
         gap: 0px;
     }
+    .help{
+        height: 70vh;
+    }
     .help-txt div h5{
         font-size: 36px;
     }
@@ -493,11 +495,6 @@ textarea{
         height: 50px;
         width: 50px;
         font-size: 22px;
-        border: 1px solid #0077FF;
-        color: #0077FF;
-    }
-    .btn-hol .active{
-        background: #0077FF;
     }
     .footer-bar{
         height: 70px;

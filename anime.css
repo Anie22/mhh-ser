@@ -54,25 +54,37 @@
 }
 
 .headings-anima{
-    transition: all 0.7s ease;
-    animation: slideDwn 2.5s linear;
+    transition: all 0.3s ease;
+    animation: slideRght 0.5s linear;
 }
-@keyframes slideDwn {
+@keyframes slideRght {
     0%{
-        transform: translateY(-42px);
+        transform: translateX(-120px);
     } 100% {
-        transform: translateY(0px);
+        transform: translateX(0px);
     }
 }
 
-.fot-con{
-    transition: all 0.7s ease;
-    animation: fadeIn 2.5s linear;
+.why-con{
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s linear;
 }
 @keyframes fadeIn {
     0%{
         opacity: 0;
     } 100% {
         opacity: 1;
+    }
+}
+
+.fot-con{
+    transition: all 0.3s ease;
+    animation: sldup 0.5s linear;
+}
+@keyframes sldup {
+    0% {
+        transform: translateY(150px);
+    } 100% {
+        transform: translateY(0px);
     }
 }

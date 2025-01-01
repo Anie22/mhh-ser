@@ -1,0 +1,9 @@
+.about{
+    height: 60vh;
+}
+.about .img img{
+    height: 60vh;
+}
+.overlay-bg{
+    background: hsla(0, 0%, 0%, 0.80);
+}

@@ -9,6 +9,7 @@ const whatsApp = document.getElementById('whatsapp')
 const teamsImg = [
     {img: 'boss.svg'},
     {img: 'sw.svg'},
+    {img: 'legal.svg'},
     {img: 'ani.svg'},
     {img: 'sm.svg'},
     {img: 'gd.svg'},
@@ -251,7 +252,8 @@ window.addEventListener('resize', screenSize);
 // Checking if an element is in view port
 document.addEventListener("DOMContentLoaded", () => {
     const headings = document.querySelectorAll('.headings');
-    const fadeIn = document.querySelectorAll('.fot')
+    const slideUp = document.querySelectorAll('.fot');
+    const fadeIn = document.querySelectorAll('.foi')
 
     // Create a function to handle visibility
     const observerCallback = (entries, observer) => {
@@ -260,14 +262,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (entry.target.classList.contains('headings')) {
                     entry.target.classList.add('headings-anima'); // Add animation class for headings
                 }
+                if (entry.target.classList.contains('foi')) {
+                    entry.target.classList.add('why-con'); // Add animation class for why
+                }
                 if (entry.target.classList.contains('fot')) {
-                    entry.target.classList.add('fot-con'); // Add animation class for headings
+                    entry.target.classList.add('fot-con'); // Add animation class for footer
                 }
             } else {
                 // Remove animation classes if needed when the element leaves the viewport
                 
                 if (entry.target.classList.contains('headings')) {
                     entry.target.classList.remove('headings-anima');
+                }
+                if (entry.target.classList.contains('foi')) {
+                    entry.target.classList.remove('why-con');
                 }
                 if (entry.target.classList.contains('fot')) {
                     entry.target.classList.remove('fot-con');
@@ -286,10 +294,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Observe all headings
     headings.forEach(heading => observer.observe(heading));
     fadeIn.forEach(fadeIn => observer.observe(fadeIn))
+    slideUp.forEach(slide => observer.observe(slide))
 });
 
 whatsApp.addEventListener('click', () => {
-    const phoneNumber = '+913004774414'
+    const phoneNumber = '+913226933463'
     const msg = 'Good day'
     const url = `https://wa.me/${phoneNumber}?text=${msg}`;
 
