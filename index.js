@@ -241,7 +241,6 @@ function nextCardSlide(direction) {
 // Initial setup
 screenSize()
 updateCardPositions();
-serviceButtonState();
 
 // Event listeners for buttons
 ser_next.addEventListener('click', () => nextCardSlide(1)); // Move to next card

@@ -255,7 +255,7 @@ textarea{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 90vh;
+    height: 80vh;
 }
 .help-txt{
     height: 100%;
@@ -393,6 +393,9 @@ textarea{
 }
 .wapp .sp{
     color: #373737;
+}
+.mail-in a:hover{
+    color: #F57920;
 }
 @media only screen and (max-width: 500px) {
     .footer-bar div .lg{

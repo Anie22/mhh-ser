@@ -1,9 +1,116 @@
 .about{
-    height: 60vh;
+    height: 40vh;
 }
 .about .img img{
-    height: 60vh;
+    height: 40vh;
 }
 .overlay-bg{
     background: hsla(0, 0%, 0%, 0.80);
+}
+.abt .abt-first{
+    transition: all 0.6s ease;
+    animation: jump 1s linear infinite;
+}
+@keyframes jump {
+    0% {
+        transform: translateY(-9px);
+    } 50% {
+        transform: translateY(0px);
+    } 100% {
+        transform: translateY(3px);
+    }
+
+}
+.abt .abt-first img{
+    width: 360px;
+    height: 350px;
+    border-radius: 15px !important;
+}
+.abt .abt-second{
+    position: relative;
+    background: #fff;
+    height: fit-content;
+    width: 360px;
+}
+.abt .abt-second img{
+    width: 330px;
+    height: 330px;
+}
+.about-heading h4{
+    font-family: "Urbanist", serif;
+    font-size: 28px;
+    font-weight: 600;
+}
+.about-con p{
+    font-family: "Urbanist", serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+span{
+    color: #F57920;
+}
+@media only screen and (min-width: 768px) {
+    .about{
+        height: 45vh;
+    }
+    .about .img img{
+        height: 45vh;
+    }
+    .abt .abt-second{
+        width: 320px;
+    }
+    .abt .abt-second img{
+        border-radius: 15px;
+    }
+    .abt-second{
+        top: 0 !important;
+        right: 0 !important;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .about{
+        height: 50vh;
+    }
+    .about .img img{
+        height: 50vh;
+    }
+    .abt{
+        height: 100vh;
+    }
+    .abt .abt-second{
+        position: absolute;
+        width: 360px;
+    }
+    .abt .abt-second img{
+        width: 350px;
+        height: 330px;
+        border-radius: 0px;
+    }
+    .abt-second{
+        top: 18em !important;
+        right: 9em !important;
+    }
+    .about-heading h4{
+        font-size: 40px;
+    }
+    .about-con p{
+        font-size: 22px;
+    }
+}
+@media only screen and (max-width: 1197px) {
+    .abt .abt-first img{
+        width: 318px;
+        height: 313px;
+    }
+    .abt .abt-second{
+        width: 310px;
+    }
+    .abt .abt-second img{
+        width: 300px;
+        height: 285px;
+    }
+    .abt-second{
+        top: 15em !important;
+        right: 4em !important;
+    }
 }
