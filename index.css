@@ -182,8 +182,8 @@ textarea{
     color: #FD853A;
 }
 .servi{
-    height: 450px;
-    width: 260px;
+    height: 350px;
+    width: 270px;
     box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
                 inset 7px 7px 0px 0px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
@@ -206,19 +206,19 @@ textarea{
 }
 .servi div {
     font-family: "Poppins", serif;
-    width: 260px;
+    width: 270px;
     padding: 0px 15px;
 }
 .servi div h2{
     font-weight: 550;
-    font-size: 22px;
+    font-size: 20px;
 }
 .servi div span{
     font-weight: 450;
-    font-size: 13px;
+    font-size: 12px;
 }
 .servi div img{
-    height: 60px;
+    height: 50px;
 }
 .serv-btn-hol button{
     display: flex;
