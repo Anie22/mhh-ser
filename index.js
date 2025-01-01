@@ -178,20 +178,20 @@ const ser_pre = document.getElementById('prev-ser');
 const ser_next = document.getElementById('next-ser');
 
 let curIndex = 0;
-const cardsPerSlide = 3;
+let cardsPerSlide = 3;
 const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
 const totalCards = ser.length; // Total number of cards
 
 function screenSize() {
     const screen = window.innerWidth;
 
-    if(screen < 992){
+    if(screen < 800){
         cardsPerSlide = 2
-    } else if(screen < 600) {
+    } 
+    
+    if(screen < 745){
         cardsPerSlide = 1
-    } else{
-        cardsPerSlide = 3
-    }
+    } 
 
     updateCardPositions()
 }
@@ -222,7 +222,7 @@ function updateCardPositions() {
         services.style.transform = `translateX(${-curIndex * cardWidths}px)`;
 
         // Add or remove the active class based on visibility
-        if (i >= curIndex && i < curIndex + cardsPerSlide - 2 / 1) {
+        if (i >= curIndex && i < curIndex + cardsPerSlide + 1 - cardsPerSlide / 1) {
             services.classList.add('current'); // Add active class to visible cards
         } else {
             services.classList.remove('current'); // Remove active class from non-visible cards
