@@ -64,3 +64,15 @@
         transform: translateY(0px);
     }
 }
+
+.fot-con{
+    transition: all 0.7s ease;
+    animation: fadeIn 2.5s linear;
+}
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}

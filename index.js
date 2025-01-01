@@ -178,9 +178,23 @@ const ser_pre = document.getElementById('prev-ser');
 const ser_next = document.getElementById('next-ser');
 
 let curIndex = 0;
-const cardsPerSlide = 2;
+const cardsPerSlide = 3;
 const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
 const totalCards = ser.length; // Total number of cards
+
+function screenSize() {
+    const screen = window.innerWidth;
+
+    if(screen < 992){
+        cardsPerSlide = 2
+    } else if(screen < 600) {
+        cardsPerSlide = 1
+    } else{
+        cardsPerSlide = 3
+    }
+
+    updateCardPositions()
+}
 
 function serviceButtonState() {
     // Disable previous button if at the start
@@ -224,6 +238,7 @@ function nextCardSlide(direction) {
 }
 
 // Initial setup
+screenSize()
 updateCardPositions();
 serviceButtonState();
 
@@ -231,9 +246,12 @@ serviceButtonState();
 ser_next.addEventListener('click', () => nextCardSlide(1)); // Move to next card
 ser_pre.addEventListener('click', () => nextCardSlide(-1));
 
+window.addEventListener('resize', screenSize);
+
 // Checking if an element is in view port
 document.addEventListener("DOMContentLoaded", () => {
     const headings = document.querySelectorAll('.headings');
+    const fadeIn = document.querySelectorAll('.fot')
 
     // Create a function to handle visibility
     const observerCallback = (entries, observer) => {
@@ -242,11 +260,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (entry.target.classList.contains('headings')) {
                     entry.target.classList.add('headings-anima'); // Add animation class for headings
                 }
+                if (entry.target.classList.contains('fot')) {
+                    entry.target.classList.add('fot-con'); // Add animation class for headings
+                }
             } else {
                 // Remove animation classes if needed when the element leaves the viewport
                 
                 if (entry.target.classList.contains('headings')) {
                     entry.target.classList.remove('headings-anima');
+                }
+                if (entry.target.classList.contains('fot')) {
+                    entry.target.classList.remove('fot-con');
                 }
                 
             }
@@ -261,6 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Observe all headings
     headings.forEach(heading => observer.observe(heading));
+    fadeIn.forEach(fadeIn => observer.observe(fadeIn))
 });
 
 whatsApp.addEventListener('click', () => {

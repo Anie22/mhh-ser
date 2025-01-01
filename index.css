@@ -133,7 +133,7 @@ textarea{
     font-size: 25px;
 }
 .con2 .form .form-control{
-    border-radius: 0px;
+    border-radius: 0px !important;
     background: transparent;
     border: none;
     border-bottom: 1px solid #4D4D4D;
@@ -187,11 +187,9 @@ textarea{
     box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
                 inset 7px 7px 0px 0px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
-    border: 1px solid hsl(0, 0%, 50%);
     transition: all 0.5s ease-in;
 }
 .servi:hover{
-    border: 1px solid hsl(25, 91%, 54%);
     box-shadow: inset 0px 0px 2px 2px rgba(250, 93, 14, 0.09),
                 inset 7px 7px 0px 0px rgba(255, 66, 14, 0.08);
     cursor: pointer;
