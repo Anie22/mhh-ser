@@ -178,7 +178,7 @@ const ser_pre = document.getElementById('prev-ser');
 const ser_next = document.getElementById('next-ser');
 
 let curIndex = 0;
-const cardsPerSlide = 3;
+const cardsPerSlide = 2;
 const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
 const totalCards = ser.length; // Total number of cards
 
