@@ -261,7 +261,7 @@ textarea{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 80vh;
+    height: fit-content;
 }
 .help-txt{
     height: 100%;
