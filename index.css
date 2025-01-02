@@ -266,7 +266,7 @@ textarea{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 50vh;
+    height: 80vh;
 }
 .help-txt{
     height: 100%;
@@ -285,6 +285,7 @@ textarea{
 .help-txt div p{
     font-size: 18px;
     color: #ffffff;
+    line-height: 140%;
 }
 .meet-hed div h3{
     font-size: 40px;
@@ -433,6 +434,9 @@ textarea{
     }
     .why-hol .img-hol img {
         width: 320px;
+    }
+    .help{
+        height: 40vh;
     }
 }
 @media only screen and (min-width: 992px) {
