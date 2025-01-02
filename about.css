@@ -1,3 +1,6 @@
+.about-container{
+    height: 100svh;
+}
 .about{
     height: 40vh;
 }
@@ -27,7 +30,7 @@
     border-radius: 15px !important;
 }
 .abt .abt-second{
-    position: relative;
+    position: relative !important;
     background: #fff;
     height: fit-content;
     width: 360px;
@@ -60,10 +63,10 @@ span{
 }
 @media only screen and (min-width: 768px) {
     .about{
-        height: 45vh;
+        height: 40vh;
     }
     .about .img img{
-        height: 45vh;
+        height: 40vh;
     }
     .abt .abt-second{
         width: 320px;
@@ -72,11 +75,14 @@ span{
         border-radius: 15px;
     }
     .abt-second{
-        top: 0 !important;
-        right: 0 !important;
+        top: 0px !important;
+        right: 0px !important;
     }
 }
 @media only screen and (min-width: 992px) {
+    .about-container{
+        height: 100svh;
+    }
     .about{
         height: 50vh;
     }
@@ -87,7 +93,7 @@ span{
         height: 100vh;
     }
     .abt .abt-second{
-        position: absolute;
+        position: absolute !important;
         width: 360px;
     }
     .abt .abt-second img{

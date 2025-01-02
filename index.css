@@ -69,7 +69,7 @@ ul li a {
 .home {
     background: #FD853A;
     width: 100%;
-    height: 100svh;
+    height: fit-content;
 }
 .big-circle,
 .big-circle img{
