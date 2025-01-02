@@ -1,5 +1,6 @@
 .about-container{
     height: 100svh;
+    background: #000;
 }
 .about{
     height: 40vh;
@@ -30,7 +31,7 @@
     border-radius: 15px !important;
 }
 .abt .abt-second{
-    position: relative !important;
+    position: initial !important;
     background: #fff;
     height: fit-content;
     width: 360px;
@@ -64,6 +65,9 @@ span{
 @media only screen and (min-width: 768px) {
     .about{
         height: 35vh;
+    }
+    .abt .abt-second{
+        position: initial !important;
     }
     .about .img img{
         height: 35vh;
