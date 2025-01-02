@@ -31,7 +31,6 @@
 }
 .abt .abt-second{
     position: initial !important;
-    background: #fff;
     height: fit-content;
     width: 360px;
 }
@@ -97,6 +96,7 @@ span{
     }
     .abt .abt-second{
         position: absolute !important;
+        background: #fff;
         width: 360px;
     }
     .abt .abt-second img{
