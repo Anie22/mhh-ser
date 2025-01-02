@@ -437,7 +437,7 @@ textarea{
         width: 320px;
     }
     .help{
-        height: 40vh;
+        height: 25vh;
     }
 }
 @media only screen and (min-width: 992px) {
