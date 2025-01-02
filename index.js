@@ -223,23 +223,11 @@ function screenSize() {
 }
 
 function serviceButtonState() {
-    // Disable previous button if at the start
-    if (curIndex === 0) {
-        ser_pre.classList.add('disable');
-        ser_pre.disabled = true;
-    } else {
-        ser_pre.classList.remove('disable');
-        ser_pre.disabled = false;
-    }
-
-    // Disable next button if at the end
-    if (curIndex >= totalCards - cardsPerSlide) {
-        ser_next.classList.remove('active1');
-        ser_next.disabled = true;
-    } else {
-        ser_next.classList.add('active1');
-        ser_next.disabled = false;
-    }
+    ser_pre.disabled = curIndex === 0;
+    ser_next.disabled = curIndex >= totalCards - cardsPerSlide;
+  
+    ser_pre.classList.toggle('disable', ser_pre.disabled);
+    ser_next.classList.toggle('disable', ser_next.disabled);
 }
 
 function updateCardPositions() {
@@ -253,6 +241,7 @@ function nextCardSlide(direction) {
     // Update curIndex based on direction
     curIndex = Math.max(0, Math.min(totalCards - cardsPerSlide, curIndex + direction));
     updateCardPositions();
+    serviceButtonState()
 }
 
 // Dragging functionality
@@ -296,28 +285,31 @@ function handleDragEnd(event) {
 // Initial setup
 screenSize();
 updateCardPositions();
-serviceButtonState();
+serviceButtonState()
 
 // Event listeners for buttons
 ser_next.addEventListener('click', () => {
-    if (curIndex === 0) {
+    if (!ser_next.disabled) {
         ser_next.classList.add('active1');
-        ser_pre.disabled = true;
+        ser_next.classList.remove('disable');
+        ser_pre.classList.remove('active1');
     } else {
-        ser_pre.classList.remove('disable');
         ser_next.classList.remove('active1');
-        ser_pre.disabled = false;
+        ser_pre.classList.add('active1');
+        ser_next.classList.add('disable');
     }
     nextCardSlide(1)
 });
 
-ser_pre.addEventListener('click', () => {
-    if (curIndex >= totalCards - cardsPerSlide) {
+ser_pre.addEventListener('click', () =>  {
+    if (!ser_pre.disabled) {
+        ser_pre.classList.add('active1');
         ser_next.classList.remove('active1');
-        ser_next.disabled = true;
+        ser_pre.classList.remove('disable');
     } else {
+        ser_pre.classList.remove('active1');
         ser_next.classList.add('active1');
-        ser_next.disabled = false;
+        ser_pre.classList.add('disable');
     }
     nextCardSlide(-1)
 });
@@ -382,10 +374,29 @@ document.addEventListener("DOMContentLoaded", () => {
     slideUp.forEach(slide => observer.observe(slide))
 });
 
+function greetings() {
+    const time = new Date()
+    const hour = time.getHours()
+    let message;
+
+    if(hour >= 4 && hour <= 11){
+        message = 'Good Morning'
+    } else if(hour >= 12 && hour <= 15) {
+        message = 'Good Afternoon'
+    } else if(hour >= 16 && hour <= 21){
+        message = 'Good Evening'
+    } else {
+        message = 'Good Night'
+    }
+
+    return message
+}
+
 whatsApp.addEventListener('click', () => {
-    const phoneNumber = '+913226933463'
-    const msg = 'Good day'
-    const url = `https://wa.me/${phoneNumber}?text=${msg}`;
+    const phoneNumber = '+923226933463'
+    const msg = greetings() + ' sir'
+    const encodedMsg = encodeURIComponent(msg); 
+    const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
 
     window.open(url, '_blank')
 })
