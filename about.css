@@ -7,6 +7,9 @@
 .about .img img{
     height: 40vh;
 }
+.abt-c-c{
+    height: fit-content;
+}
 .overlay-bg{
     background: hsla(0, 0%, 0%, 0.80);
 }
@@ -62,13 +65,16 @@ span{
 }
 @media only screen and (min-width: 768px) {
     .about{
-        height: 35vh;
+        height: 35svh;
+    }
+    .abt-c-c{
+        height: 65svh;
     }
     .abt .abt-second{
         position: initial !important;
     }
     .about .img img{
-        height: 35vh;
+        height: 35svh;
     }
     .abt .abt-second{
         width: 320px;
@@ -90,6 +96,9 @@ span{
     }
     .about .img img{
         height: 50vh;
+    }
+    .abt-c-c{
+        height: fit-content;
     }
     .abt{
         height: 100vh;
