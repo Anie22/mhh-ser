@@ -41,7 +41,7 @@ teamsImg.forEach(item => {
 
 serviceInfo.forEach(con => {
     const insertSer = `
-        <div class="d-flex flex-column align-items-center justify-content-center gap-2 servi px-4 py-5">
+        <div class="d-flex flex-column align-items-center justify-content-center gap-1 servi px-4 py-5">
             <div class="d-flex align-items-center justify-content-center">
                 <img src="icon.svg" alt="">
             </div>
