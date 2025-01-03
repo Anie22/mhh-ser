@@ -82,7 +82,7 @@ ul li a {
     height: 540px;
 }
 .big-circle{
-    transform: translateY(70px);
+    transform: translateY(-35px);
 }
 .small-circle{
     transform: translateY(67px);
@@ -96,13 +96,13 @@ ul li a {
     font-family: "Work Sans", serif;
 }
 .con-info h3{
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 700;
     font-family: "Work Sans", serif;
     line-height: 145%;
 }
 .con-info h4{
-    font-size: 29px;
+    font-size: 24px;
     font-weight: 700;
     font-family: "Urbanist", serif;
 }
@@ -142,7 +142,7 @@ textarea{
 .con2 h4{
     font-family: "Urbanist", serif;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 22px;
 }
 .con2 .form .form-control{
     border-radius: 0px !important;
@@ -169,6 +169,11 @@ textarea{
     background: #F57920;
     font-family: "Urbanist", serif;
 }
+.con2 .form button:hover{
+    background: #ffff;
+    color: #F57920;
+    border: 2px solid #F57920;
+}
 .button{
     border: none;
     background: #373737;
@@ -183,8 +188,8 @@ textarea{
 }
 .button:hover{
     background: #ffffff;
-    color: #1f1f1f;
-    border: 2px solid #1f1f1f;
+    color: hsl(0, 0%, 42%);
+    border: 2px solid hsl(0, 0%, 42%);
 }
 .serv h3 {
     font-family: "Poppins", serif;
@@ -196,14 +201,12 @@ textarea{
 .servi{
     height: 350px;
     width: 270px;
-    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
-                inset 7px 7px 0px 0px rgba(0, 0, 0, 0.08);
+    border: 2px solid hsl(0, 0%, 90%);
     border-radius: 16px;
     transition: all 0.5s ease-in;
 }
 .servi:hover{
-    box-shadow: inset 0px 0px 2px 2px rgba(250, 93, 14, 0.09),
-                inset 7px 7px 0px 0px rgba(255, 66, 14, 0.08);
+    border: 2px solid hsl(39, 100%, 85%);
     cursor: pointer;
     transform: scale(1.5);
 }
@@ -415,6 +418,56 @@ textarea{
     color: #00000056 !important;
     background: none !important;
 }
+.error{
+    font-family: "Urbanist", serif;
+    font-weight: 450;
+    font-size: 15px;
+}
+.load-hol{
+    display: none;
+}
+.loading{
+    z-index: 999; 
+    height: 100vh; 
+    background: hsla(0, 0%, 0%, 0.786);
+    transition: all 0.5s ease;
+    animation: fadeIn 0.6s linear;
+}
+.loding-in{
+    background-color: white; 
+    height: 120px; 
+    border-radius: 6px;
+}
+.loding-in img{
+    height: 55px; 
+    width: 55px;
+    transition: all 0.5s ease-in-out;
+    animation: fadeIn 1.2s linear infinite;
+}
+.loding-in p{
+    font-size: 17px;
+    font-family: "Urbanist", serif;
+}
+.msg-hol{
+    display: none;
+}
+.msg-hol .msg{
+    z-index: 999;
+    transition: all 0.5s ease-in-out;
+    animation: fadeIn 0.6s linear;
+}
+.msg-hol .msg .msg-bx{
+    height: 70px; 
+    border-radius: 7px;
+    transition: all 0.5s ease-in-out;
+    animation: slideLeft 1.2s linear;
+}
+.msg-hol .msg .msg-bx .txt span{
+    font-family: "Urbanist", serif;
+    font-size: 15px; 
+    font-weight: 500; 
+    line-height: 120%;
+}
 @media only screen and (max-width: 500px) {
     .footer-bar div .lg{
         height: 32px;
@@ -451,6 +504,9 @@ textarea{
     }
     .home {
         height: 100vh;
+    }
+    .big-circle{
+        transform: translateY(70px);
     }
     .con2{
         background: transparent;

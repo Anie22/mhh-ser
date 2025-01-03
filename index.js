@@ -138,17 +138,20 @@ function changeContent () {
                 </div>
             </div>
             <div class="col-lg-5 col-12 p-0 con2">
-                <form action="" class="col-12 d-flex flex-column gap-2">
+                <form action="" class="col-12 d-flex flex-column gap-2" id="form-holder-con">
                     <div class="row m-0 p-0 gap-lg-5 gap-2 col-12 in-dual">
                         <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="text" name="name" id="name" placeholder="Name*">
+                            <input class="form-control" type="text" name="userName" id="userName" placeholder="Name">
+                            <span class="text-danger error text-capitalize" id="warning"></span>
                         </div>
                         <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="email" name="email" id="email" placeholder="Email*">
+                            <input class="form-control" type="email" name="userEmail" id="userEmail" placeholder="Email">
+                            <span class="text-danger error text-capitalize" id="warning2"></span>
                         </div>
                     </div>
                     <div>
-                        <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="How can we help you?"></textarea>
+                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="How can we help you?"></textarea>
+                        <span class="text-danger error text-capitalize" id="warning3"></span>
                     </div>
                     <div>
                         <button class="button" type="submit">Send message</button>
@@ -168,17 +171,20 @@ function changeContent () {
                 <div>
                     <h4>Appointment</h4>
                 </div>
-                <form action="" class="col-12 d-flex flex-column align-items-center gap-3 form">
+                <form action="" class="col-12 d-flex flex-column align-items-center gap-3 form" id="form-holder-con">
                     <div class="row m-0 p-0 gap-lg-5 gap-3 col-12 in-dual">
                         <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="text" name="name" id="name" placeholder="Name">
+                            <input class="form-control" type="text" name="userName" id="userName" placeholder="Name">
+                            <span class="text-danger error text-capitalize" id="warning"></span>
                         </div>
                         <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="email" name="email" id="email" placeholder="Email">
+                            <input class="form-control" type="email" name="userEmail" id="userEmail" placeholder="Email">
+                            <span class="text-danger error text-capitalize" id="warning2"></span>
                         </div>
                     </div>
                     <div class="col-12">
-                        <input class="form-control" type="text" name="help" id="help" placeholder="Message">
+                        <input class="form-control" type="text" name="message" id="message" placeholder="Message">
+                        <span class="text-danger error text-capitalize" id="warning3"></span>
                     </div>
                     <div class="mt-2">
                         <button class="button" type="submit">Send message</button>

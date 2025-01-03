@@ -83,7 +83,7 @@
 }
 @keyframes sldup {
     0% {
-        transform: translateY(120px);
+        transform: translateY(90px);
     } 100% {
         transform: translateY(0px);
     }

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>MHM Service</title>
 </head>
-<body>
+<body id="body">
     <div>
         <div>
             <section class="col">
@@ -176,23 +176,27 @@
                                     <p>Reach out to the world’s most reliable IT services.</p>
                                 </div>
                                 <div class="col-12 p-0 conti">
-                                    <form action="" class="col-12 d-flex flex-column gap-3">
+                                    <form action="" class="col-12 d-flex flex-column gap-3" id="con-form">
                                         <div class="row m-0 p-0 col-12 in-dual gap-2 gap-lg-5">
                                             <div class="col-lg-5 col-12 p-0 m-0">
-                                                <input class="form-control col-12" type="text" name="name" id="name" placeholder="Full Name">
+                                                <input class="form-control col-12" type="text" name="fullName" id="fullName" placeholder="Full Name">
+                                                <span class="text-danger error text-capitalize" id="error"></span>
                                             </div>
                                             <div class="col-lg-5 col-12 p-0 m-0">
                                                 <input class="form-control col-12" type="email" name="email" id="email" placeholder="Email">
+                                                <span class="text-danger error text-capitalize" id="error2"></span>
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <input class="form-control" type="tel" name="tel" id="tel" placeholder="Phone Number">
+                                            <input class="form-control" type="tel" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+                                            <span class="text-danger error text-capitalize" id="error3"></span>
                                         </div>
                                         <div class="col-12">
-                                            <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="Describe what you need"></textarea>
+                                            <textarea class="form-control" name="message" id="message2" cols="60" rows="20" placeholder="Describe what you need"></textarea>
+                                            <span class="text-danger error text-capitalize" id="error4"></span>
                                         </div>
                                         <div>
-                                            <button class="button" type="submit">Get A free Consulation</button>
+                                            <button class="button" type="submit">Get A Free Consultation</button>
                                         </div>
                                     </form>
                                 </div>
@@ -214,7 +218,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-12 position-fixed end-0 wapp d-flex align-items-center gap-1 justify-content-end" id="whatsapp">
+                        <div class="col-xl-2 col-lg-3 col-12 position-fixed end-0 wapp d-flex align-items-center gap-1 justify-content-end" id="whatsapp">
                             <img src="whatsapp.svg" alt="">
                             <div class="px-2 py-1">
                                 <span class="text-capitalize">Need help? <span class="sp">chat with us now</span></span>
@@ -241,10 +245,34 @@
                     </div>
                 </footer>
             </section>
+
+            <!-- loding screen -->
+            <div class="load-hol" id="loader">
+                <div class="position-fixed start-0 end-0 bottom-0 top-0 d-flex align-items-center justify-content-center loading">
+                    <div class="col-lg-2 col-md-5 col-8 d-flex align-items-center justify-content-center loding-in">
+                        <div class="d-flex gap-2 flex-column align-items-center">
+                            <img src="logo.svg" alt="logo">
+                            <p>Please wait ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- message box -->
+            <div class="msg-hol" id="msg-box">
+                <div class="position-absolute top-0 end-0 bottom-0 start-0 col-12 py-3 px-2 d-flex align-items-start justify-content-md-end msg">
+                    <div class="bg-white col-lg-4 col-md-6 col-12 p-2 shadow msg-bx">
+                        <div class="txt">
+                            <span id="api-res-msg">iuihruhrhr jrhrjhjr jrjrj jrhjr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
 <script src="index.js"></script>
 <script src="bootstrap.js"></script>
+<script src="form.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
