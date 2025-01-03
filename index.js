@@ -6,6 +6,7 @@ const heroHeading = document.getElementById('hero-heading');
 const heroBody = document.getElementById('hero-body');
 const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
+import { appointmentBookink } from "./form";
 
 const teamsImg = [
     {img: 'boss.svg'},
@@ -194,9 +195,11 @@ function changeContent () {
         `
         heroBody.innerHTML = addHeroBody
     };
+
+    appointmentBookink();
 }
 
-changeContent()
+changeContent();
 
 window.addEventListener('resize', changeContent); // pays attension for change in width
 

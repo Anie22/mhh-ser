@@ -25,98 +25,100 @@ function urlLink() {
     return BaseURL
 }
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    let Error = false;
-
-    if(userName.value.trim() == ''){
-        warning.textContent = 'This field is required'
-        Error = true
-    } else {
+export const appointmentBookink = () => {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+    
+        let Error = false;
+    
+        if(userName.value.trim() == ''){
+            warning.textContent = 'This field is required'
+            Error = true
+        } else {
+            warning.textContent = ''
+        }
+    
+        if(userEmail.value.trim() == ''){
+            warning2.textContent = 'This field is required'
+            Error = true
+        } else {
+            warning2.textContent = ''
+        }
+    
+        if(message.value.trim() == ''){
+            warning3.textContent = 'This field is required'
+            Error = true
+        } else {
+            warning3.textContent = ''
+        }
+    
+        if(!Error) {
+    
+            const formData = {
+                userName: userName.value.trim(),
+                userEmail: userEmail.value.trim(),
+                message: message.value.trim()
+            }
+    
+            loader.style.display = 'block'
+            body.style.overflow = 'hidden'
+    
+            try {
+                const response = await fetch(`${urlLink()}appoint-booking`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+    
+                })
+    
+                if(response){
+                    const res = await response.json()
+                    loader.style.display = 'none'
+                    msgContent.textContent = res.message
+                    messageBox.style.display = 'block'
+                    body.style.overflow = 'auto'
+    
+                    const autoShow = setTimeout(() => {
+                        if(messageBox) {
+                            messageBox.style.display = 'none'
+                        }
+                    }, 3000);
+    
+                    autoShow();
+                }
+            } catch (err) {
+                if(err) {
+                    loader.style.display = 'none'
+                    body.style.overflow = 'auto'
+                    msgContent.textContent = err[0]
+                    messageBox.style.display = 'block'
+                    
+                    const autoShow = setTimeout(() => {
+                        if(messageBox) {
+                            messageBox.style.display = 'none'
+                        }
+                    }, 3000);
+    
+                    autoShow();
+                }
+            }
+        }
+    });
+    
+    userName.addEventListener('input', () => {
         warning.textContent = ''
-    }
-
-    if(userEmail.value.trim() == ''){
-        warning2.textContent = 'This field is required'
-        Error = true
-    } else {
-        warning2.textContent = ''
-    }
-
-    if(message.value.trim() == ''){
-        warning3.textContent = 'This field is required'
-        Error = true
-    } else {
-        warning3.textContent = ''
-    }
-
-    if(!Error) {
-
-        const formData = {
-            userName: userName.value.trim(),
-            userEmail: userEmail.value.trim(),
-            message: message.value.trim()
-        }
-
-        loader.style.display = 'block'
-        body.style.overflow = 'hidden'
-
-        try {
-            const response = await fetch(`${urlLink()}appoint-booking`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-
-            })
-
-            if(response){
-                const res = await response.json()
-                loader.style.display = 'none'
-                msgContent.textContent = res.message
-                messageBox.style.display = 'block'
-                body.style.overflow = 'auto'
-
-                const autoShow = setTimeout(() => {
-                    if(messageBox) {
-                        messageBox.style.display = 'none'
-                    }
-                }, 3000);
-
-                autoShow()
-            }
-        } catch (err) {
-            if(err) {
-                loader.style.display = 'none'
-                body.style.overflow = 'auto'
-                msgContent.textContent = err[0]
-                messageBox.style.display = 'block'
-                
-                const autoShow = setTimeout(() => {
-                    if(messageBox) {
-                        messageBox.style.display = 'none'
-                    }
-                }, 3000);
-
-                autoShow()
-            }
-        }
-    }
-})
-
-userName.addEventListener('input', () => {
-    warning.textContent = ''
-});
-
-userEmail.addEventListener('input', () => {
-    warning2.textContent = '';
-});
-
-message.addEventListener('input', () => {
-    warning3.textContent = '';
-});
+    });
+    
+    userEmail.addEventListener('input', () => {
+        warning2.textContent = '';
+    });
+    
+    message.addEventListener('input', () => {
+        warning3.textContent = '';
+    });
+}
 
 bookingForm.addEventListener('submit', async (e) => {
     e.preventDefault();
