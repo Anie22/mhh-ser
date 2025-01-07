@@ -44,6 +44,7 @@
 .hero-ani .con2{
     transition: all 0.30s ease-in;
     animation: slideLeft 0.30s linear;
+    transform: translateX(0px);
 }
 @keyframes slideLeft {
     0% {
