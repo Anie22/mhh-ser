@@ -23,12 +23,12 @@ export function appointmentBookink () {
     const mobile = window.innerWidth < 992;
 
     const form = document.getElementById('Mform-holder-con');
-    const userName = document.getElementById(mobile ? 'MuserName' : 'userName');
-    const userEmail = document.getElementById(mobile ? 'MuserEmail' : 'userEmail');
-    const message = document.getElementById(mobile ? 'Mmessage' : 'message');
-    const warning = document.getElementById(mobile ? 'Mwarning' : 'warning');
-    const warning2 = document.getElementById(mobile ? 'Mwarning2' : 'warning2');
-    const warning3 = document.getElementById(mobile ? 'Mwarning3' : 'warning3');
+    const userName = document.getElementById('MuserName');
+    const userEmail = document.getElementById('MuserEmail');
+    const message = document.getElementById('Mmessage' );
+    const warning = document.getElementById('Mwarning' );
+    const warning2 = document.getElementById('Mwarning2');
+    const warning3 = document.getElementById('Mwarning3');
     const loader = document.getElementById('loader');
     const body = document.getElementById('body');
     const messageBox = document.getElementById('msg-box');
@@ -65,9 +65,9 @@ export function appointmentBookink () {
         if(!Error) {
     
             const formData = {
-                userName: userName.value.trim(),
-                userEmail: userEmail.value.trim(),
-                message: message.value.trim()
+                userNamevalue.trim(),
+                userEmail.value.trim(),
+                messagealue.trim()
             }
     
             loader.style.display = 'block'
@@ -75,11 +75,9 @@ export function appointmentBookink () {
     
             try {
                 const response = await fetch('https://mhm-tech-api.onrender.com/appoint-booking', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
+                    method                   headers                 'Content-Type'ion/json',
                     },
-                    body: JSON.stringify(formData),
+                    bodyngify(formData),
     
                 })
 
@@ -171,10 +169,10 @@ bookingForm.addEventListener('submit', async (e) => {
     if(!err) {
 
         const formData = {
-            fullName: fullName.value.trim(),
-            email: email.value.trim(),
-            phoneNumber: phoneNumber.value.trim(),
-            message: message2.value.trim()
+            fullNamevalue.trim(),
+            emailue.trim(),
+            phoneNumberer.value.trim(),
+            messagevalue.trim()
         }
 
         loader.style.display = 'block'
@@ -182,11 +180,9 @@ bookingForm.addEventListener('submit', async (e) => {
 
         try {
             const response = await fetch(`${urlLink()}appoint/consult-bkg`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+                method               headers             'Content-Type'ion/json',
                 },
-                body: JSON.stringify(formData),
+                bodyngify(formData),
 
             })
 
