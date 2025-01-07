@@ -177,7 +177,7 @@ function changeContent () {
                 <div>
                     <h4>Appointment</h4>
                 </div>
-                <form class="col-12 d-flex flex-column align-items-center gap-3 form" id="form-holder-con">
+                <form class="col-12 d-flex flex-column align-items-center gap-3 form" id="Mform-holder-con">
                     <div class="row m-0 p-0 gap-lg-5 gap-3 col-12 in-dual">
                         <div class="col-lg-5 col-12 p-0">
                             <input class="form-control" type="text" name="userName" id="MuserName" placeholder="Name">
