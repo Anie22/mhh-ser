@@ -120,19 +120,8 @@ preBut.addEventListener('click', () => {
 
 activeButtons();
 
-function cleanUpEventListeners() {
-    const oldForm = document.getElementById('form-holder-con');
-    if (oldForm) {
-        const newForm = oldForm.cloneNode(true);
-        oldForm.parentNode.replaceChild(newForm, oldForm);
-    }
-}
-
 // dynamically handle the different content on the hero section
 function changeContent () {
-    cleanUpEventListeners();
-
-    console.log('boss')
 
     if(window.innerWidth >= 992){
         const addHeroHeading = `
@@ -175,6 +164,8 @@ function changeContent () {
             </div>
         `
         heroBody.innerHTML = addHeroBody // add the desktop form 
+        
+        appointmentBookink();
     } else {
         const addHeroHeading = `
             <h4 class="h4">We <span>Provide</span> Best <span>IT</span> Solutions</h4>
@@ -208,9 +199,10 @@ function changeContent () {
             </div>
         `
         heroBody.innerHTML = addHeroBody
-    };
 
-    appointmentBookink();
+        
+        appointmentBookink();
+    };
 }
 
 changeContent();

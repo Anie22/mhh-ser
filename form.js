@@ -33,6 +33,8 @@ export function appointmentBookink () {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        console.log('boss')
     
         let Error = false;
     
