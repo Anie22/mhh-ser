@@ -164,8 +164,6 @@ function changeContent () {
             </div>
         `
         heroBody.innerHTML = addHeroBody // add the desktop form 
-        
-        appointmentBookink();
     } else {
         const addHeroHeading = `
             <h4 class="h4">We <span>Provide</span> Best <span>IT</span> Solutions</h4>
@@ -198,11 +196,10 @@ function changeContent () {
                 </form>
             </div>
         `
-        heroBody.innerHTML = addHeroBody
-
-        
-        appointmentBookink();
+        heroBody.innerHTML = addHeroBody;
     };
+
+    appointmentBookink();
 }
 
 changeContent();
