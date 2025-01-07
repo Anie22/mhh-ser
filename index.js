@@ -186,7 +186,7 @@ function changeContent () {
                         </div>
                     </div>
                     <div class="col-12">
-                        <input class="form-control" type="text" name="message" id="message" placeholder="Message">
+                        <textarea class="form-control txt-area" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
                         <span class="text-danger error text-capitalize" id="warning3"></span>
                     </div>
                     <div class="mt-2">

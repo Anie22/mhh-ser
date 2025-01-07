@@ -171,10 +171,18 @@ textarea{
     border-color: transparent !important;
     border-bottom: 1px solid #4D4D4D !important;
 }
-.con2 .form input{
+.con2 .form input,
+.con2 .form .txt-area{
     font-family: "Urbanist", serif;
 }
+.con2 .form .txt-area{
+    height: 50px !important;
+}
 .con2 .form input::placeholder{
+    color: #4D4D4D;
+    font-family: "Urbanist", serif;
+}
+.con2 .form .txt-area::placeholder{
     color: #4D4D4D;
     font-family: "Urbanist", serif;
 }
