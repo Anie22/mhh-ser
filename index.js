@@ -181,16 +181,16 @@ function changeContent () {
                     <div class="row m-0 p-0 gap-lg-5 gap-3 col-12 in-dual">
                         <div class="col-lg-5 col-12 p-0">
                             <input class="form-control" type="text" name="userName" id="MuserName" placeholder="Name">
-                            <span class="text-danger error text-capitalize" id="warning"></span>
+                            <span class="text-danger error text-capitalize" id="Mwarning"></span>
                         </div>
                         <div class="col-lg-5 col-12 p-0">
                             <input class="form-control" type="email" name="userEmail" id="MuserEmail" placeholder="Email">
-                            <span class="text-danger error text-capitalize" id="warning2"></span>
+                            <span class="text-danger error text-capitalize" id="Mwarning2"></span>
                         </div>
                     </div>
                     <div class="col-12">
                         <textarea class="form-control txt-area" name="message" id="Mmessage" cols="30" rows="10" placeholder="Message"></textarea>
-                        <span class="text-danger error text-capitalize" id="warning3"></span>
+                        <span class="text-danger error text-capitalize" id="Mwarning3"></span>
                     </div>
                     <div class="mt-2">
                         <button class="button" type="submit">Send message</button>

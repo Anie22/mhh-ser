@@ -24,10 +24,10 @@ export function appointmentBookink () {
 
     const userName = document.getElementById(mobile ? 'MuserName' : 'userName');
     const userEmail = document.getElementById(mobile ? 'MuserEmail' : 'userEmail');
-    const message = document.getElementById(mobile? 'Mmessage' : 'message');
-    const warning = document.getElementById('warning');
-    const warning2 = document.getElementById('warning2');
-    const warning3 = document.getElementById('warning3');
+    const message = document.getElementById(mobile ? 'Mmessage' : 'message');
+    const warning = document.getElementById(mobile ? 'Mwarning' : 'warning');
+    const warning2 = document.getElementById(mobile ? 'Mwarning2' : 'warning2');
+    const warning3 = document.getElementById(mobile ? 'Mwarning3' : 'warning3');
     const loader = document.getElementById('loader');
     const body = document.getElementById('body');
     const messageBox = document.getElementById('msg-box');
