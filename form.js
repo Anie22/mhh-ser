@@ -18,7 +18,7 @@ function urlLink() {
     return BaseURL
 }
 
-export function appointmentBookink () {
+module.export function appointmentBookink () {
     const form = document.getElementById('form-holder-con');
     const userName = document.getElementById('userName');
     const userEmail = document.getElementById('userEmail');
