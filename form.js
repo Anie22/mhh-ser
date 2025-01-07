@@ -19,7 +19,7 @@ function urlLink() {
 }
 
 export function appointmentBookink () {
-    const form = document.querySelector('.form-holder-con');
+    const form = document.getElementById('form-holder-con');
     const userName = document.getElementById('userName');
     const userEmail = document.getElementById('userEmail');
     const message = document.getElementById('message');
