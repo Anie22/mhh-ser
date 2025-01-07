@@ -6,7 +6,9 @@ const heroHeading = document.getElementById('hero-heading');
 const heroBody = document.getElementById('hero-body');
 const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
-import { appointmentBookink } from "./form";
+const navlink = document.querySelectorAll('.nav-item a');
+const mobileNav = document.getElementById('offcanvasNavbar')
+import { appointmentBookink } from "./form.js";
 
 const teamsImg = [
     {img: 'boss.svg'},
@@ -33,7 +35,7 @@ const serviceInfo = [
 teamsImg.forEach(item => {
     const insertImg = `
         <div class="card-con">
-            <img src=${item.img} alt="">
+            <img src=img/${item.img} alt="">
         </div>
     `
 
@@ -43,14 +45,14 @@ teamsImg.forEach(item => {
 serviceInfo.forEach(con => {
     const insertSer = `
         <div class="d-flex flex-column align-items-center justify-content-center gap-1 servi px-4 py-5">
-            <div class="d-flex align-items-center justify-content-center">
-                <img src="icon.svg" alt="">
+            <div class="d-flex align-items-center justify-content-center img-con">
+                <img src="img/icon.svg" alt="mhm-tech-service-icon">
             </div>
             <div>
-                <h2 class="text-capitalize text-center">${con.name}</h2>
+                <h1 class="text-capitalize text-center">${con.name}</h1>
             </div>
             <div>
-                <span>${con.des}</span>
+                <p>${con.des}</p>
             </div>
         </div>
     `
@@ -373,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Create an IntersectionObserver instance
     const observerOptions = {
-        threshold: 0.1 // Adjust as needed to trigger visibility (0.1 = 10% visible)
+        threshold: 0 // Adjust as needed to trigger visibility (0.1 = 10% visible)
     };
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
@@ -422,5 +424,12 @@ navLink.forEach(navL => {
     navL.addEventListener('click', (e) => {
         navLink.forEach(link => link.classList.remove('active'))
         navL.classList.add('active')
+    })
+})
+
+navlink.forEach(nav => {
+    nav.addEventListener('click', () => {
+        mobileNav.classList.remove('show')
+        console.log(25)
     })
 })

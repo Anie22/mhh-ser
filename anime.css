@@ -1,5 +1,5 @@
 .hero-ani h6{
-    transition: all 2.5s ease-in;
+    transition: all 0.5s ease-in;
 }
 @keyframes slideDown {
     0%{
@@ -10,7 +10,7 @@
 }
 .hero-ani h3{
     transform: translateY(0px);
-    transition: all 2.5s ease-in;
+    transition: all 0.5s ease-in;
 }
 @keyframes slideUp {
     0% {
@@ -20,8 +20,8 @@
     }
 }
 .hero-ani .con{
-    transition: all 2.5s ease-in;
-    animation: slideRight 2s linear;
+    transition: all 0.5s ease-in;
+    animation: slideRight 0.5s linear;
 }
 @keyframes slideRight {
     0% {
@@ -31,8 +31,8 @@
     }
 }
 .hero-ani .h4{
-    transition: all 2.5s ease-in;
-    animation: slideRight 2s linear;
+    transition: all 0.5s ease-in;
+    animation: slideRight 0.5s linear;
 }
 @keyframes slideRight {
     0% {
@@ -42,8 +42,8 @@
     }
 }
 .hero-ani .con2{
-    transition: all 2.5s ease-in;
-    animation: slideLeft 2s linear;
+    transition: all 0.5s ease-in;
+    animation: slideLeft 0.5s linear;
 }
 @keyframes slideLeft {
     0% {
@@ -54,7 +54,7 @@
 }
 
 .headings-anima{
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     animation: slideRght 0.5s linear;
 }
 @keyframes slideRght {
@@ -66,7 +66,7 @@
 }
 
 .why-con{
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     animation: fadeIn 0.5s linear;
 }
 @keyframes fadeIn {
@@ -78,12 +78,12 @@
 }
 
 .fot-con{
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     animation: sldup 0.5s linear;
 }
 @keyframes sldup {
     0% {
-        transform: translateY(90px);
+        transform: translateY(30px);
     } 100% {
         transform: translateY(0px);
     }

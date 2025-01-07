@@ -1,15 +1,8 @@
-const form = document.getElementById('form-holder-con');
 const bookingForm = document.getElementById('con-form');
 const fullName = document.getElementById('fullName');
 const email = document.getElementById('email');
 const phoneNumber = document.getElementById('phoneNumber');
 const message2 = document.getElementById('message2');
-const userName = document.getElementById('userName');
-const userEmail = document.getElementById('userEmail');
-const message = document.getElementById('message');
-const warning = document.getElementById('warning');
-const warning2 = document.getElementById('warning2');
-const warning3 = document.getElementById('warning3');
 const error = document.getElementById('error');
 const error2 = document.getElementById('error2');
 const error3 = document.getElementById('error3');
@@ -20,12 +13,24 @@ const messageBox = document.getElementById('msg-box');
 const msgContent = document.getElementById('api-res-msg');
 
 function urlLink() {
-    BaseURL = 'https://mhm-tech-api.onrender.com/'
+    const BaseURL = 'https://mhm-tech-api.onrender.com/'
 
     return BaseURL
 }
 
-export const appointmentBookink = () => {
+export function appointmentBookink () {
+    const form = document.getElementById('form-holder-con');
+    const userName = document.getElementById('userName');
+    const userEmail = document.getElementById('userEmail');
+    const message = document.getElementById('message');
+    const warning = document.getElementById('warning');
+    const warning2 = document.getElementById('warning2');
+    const warning3 = document.getElementById('warning3');
+    const loader = document.getElementById('loader');
+    const body = document.getElementById('body');
+    const messageBox = document.getElementById('msg-box');
+    const msgContent = document.getElementById('api-res-msg');
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
     
@@ -64,7 +69,7 @@ export const appointmentBookink = () => {
             body.style.overflow = 'hidden'
     
             try {
-                const response = await fetch(`${urlLink()}appoint-booking`, {
+                const response = await fetch('https://mhm-tech-api.onrender.com/appoint-booking', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -72,6 +77,11 @@ export const appointmentBookink = () => {
                     body: JSON.stringify(formData),
     
                 })
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('Server error:', errorData); // Log the server's response
+                }
     
                 if(response){
                     const res = await response.json()
@@ -80,29 +90,29 @@ export const appointmentBookink = () => {
                     messageBox.style.display = 'block'
                     body.style.overflow = 'auto'
     
-                    const autoShow = setTimeout(() => {
+                    setTimeout(() => {
                         if(messageBox) {
                             messageBox.style.display = 'none'
                         }
                     }, 3000);
-    
-                    autoShow();
                 }
             } catch (err) {
                 if(err) {
                     loader.style.display = 'none'
                     body.style.overflow = 'auto'
-                    msgContent.textContent = err[0]
+                    msgContent.textContent = err
                     messageBox.style.display = 'block'
+
+                    console.log(err)
                     
-                    const autoShow = setTimeout(() => {
+                    setTimeout(() => {
                         if(messageBox) {
                             messageBox.style.display = 'none'
                         }
                     }, 3000);
-    
-                    autoShow();
                 }
+
+                console.log(err)
             }
         }
     });
@@ -183,7 +193,7 @@ bookingForm.addEventListener('submit', async (e) => {
                 messageBox.style.display = 'block'
                 body.style.overflow = 'auto'
 
-                const autoShow = setTimeout(() => {
+                setTimeout(() => {
                     if(messageBox) {
                         messageBox.style.display = 'none'
                     }
@@ -199,7 +209,7 @@ bookingForm.addEventListener('submit', async (e) => {
                 messageBox.style.display = 'block'
                 body.style.overflow = 'auto'
 
-                const autoShow = setTimeout(() => {
+                setTimeout(() => {
                     if(messageBox) {
                         messageBox.style.display = 'none'
                     }

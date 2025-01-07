@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: 'Porter Sans Block Block';
+    src: local('Porter Sans Block Block'), url('css/PorterSansBlock-Regular.woff') format('woff');
+}
 
 body,
 html{
@@ -8,11 +12,11 @@ html{
 }
 
 .head-con {
-    height: 70px;
+    height: 70px !important;
     z-index: 999;
 }
 .head-con2 {
-    height: 100%;
+    height: 100% !important;
     background-color: rgba(33, 37, 41) !important;
 }
 .logo-hol{
@@ -21,27 +25,31 @@ html{
 .log-hol{
     height: 70px;
 }
-.logo-con h2, p {
+.logo-con h2, h3 {
     font-size: 18px;
     margin: 0 !important;
     font-weight: 500;
     font-family: "Urbanist", serif;
 }
-.logo-con p {
+.logo-con h3 {
     width: fit-content;
     background: #F57920;
     border-radius: 50px;
 }
 ul li a {
-    font-size: 17px;
+    font-size: 17px !important;
     font-weight: 500;
     font-family: "Urbanist", serif;
+    color: inherit !important;
 }
 .nav-link:hover {
     color: #F57920 !important;
 }
 .nav-item:active {
     color: #F57920 !important;
+}
+.nav-item{
+    color: #ffffff  ;
 }
 .nav-item.active {
     color: #F57920 !important;
@@ -72,6 +80,13 @@ ul li a {
     width: 30px;
     font-size: 15px;
 }
+
+
+/*
+    HERO SECTION STYLE
+*/
+
+
 .home {
     background: #FD853A;
     width: 100%;
@@ -191,15 +206,21 @@ textarea{
     color: hsl(0, 0%, 42%);
     border: 2px solid hsl(0, 0%, 42%);
 }
-.serv h3 {
+
+
+/*
+    SERVICE SECTION STYLE
+*/
+
+.serv h2 {
     font-family: "Poppins", serif;
-    font-size: 35px;
+    font-size: 32px;
 }
-.serv h3 span {
+.serv h2 span {
     color: #FD853A;
 }
 .servi{
-    height: 385px;
+    height: 320px;
     width: 270px;
     border: 2px solid hsl(0, 0%, 90%);
     border-radius: 16px;
@@ -215,16 +236,21 @@ textarea{
     width: 270px;
     padding: 0px 15px;
 }
-.servi div h2{
+.servi div h1{
     font-weight: 550;
-    font-size: 19px;
+    font-size: 18px;
 }
-.servi div span{
+.servi div p{
     font-weight: 450;
     font-size: 12px;
 }
-.servi div img{
+.servi .img-con{
     height: 50px;
+    width: 50px;
+}
+.servi div img{
+    height: 60px;
+    width: 60px;
 }
 .serv-btn-hol button{
     display: flex;
@@ -243,6 +269,13 @@ textarea{
     background: #F57920;
     color: #ffffff;
 }
+
+
+/*
+    WHY SECTION STYLE
+*/
+
+
 .why-hol{
     gap: 16px;
 }
@@ -265,6 +298,13 @@ textarea{
 .why-txt-hol div p{
     font-size: 12px;
 }
+
+
+/*
+    HELP SECTION STYLE
+*/
+
+
 .help{
     background-image: url(./bus.jpg);
     background-repeat: no-repeat;
@@ -291,6 +331,13 @@ textarea{
     color: #ffffff;
     line-height: 140%;
 }
+
+
+/*
+    TEAMS SECTION STYLE
+*/
+
+
 .meet-hed div h3{
     font-size: 40px;
     font-weight: 600 !important;
@@ -323,6 +370,13 @@ textarea{
     background: #F57920;
     color: #ffffff;
 }
+
+
+/*
+    CONTACT SECTION STYLE
+*/
+
+
 .contact {
     background: hsl(25, 91%, 84%);
 }
@@ -342,9 +396,12 @@ textarea{
 }
 .mail-in a{
     text-decoration: none;
-    font-size: 30px;
+    font-size: 22px;
     border-radius: 7px;
     color: #ffffff;
+}
+.mail-in a:hover{
+    color: #F57920;
 }
 .contact input,
 .contact textarea,
@@ -387,6 +444,13 @@ textarea{
     font-weight: 400;
     font-size: 15px !important;
 }
+
+
+/*
+    WHATSAPP STYLE
+*/
+
+
 .wapp,
 .wapp img{
     height: 40px;
@@ -410,9 +474,13 @@ textarea{
 .wapp .sp{
     color: #373737;
 }
-.mail-in a:hover{
-    color: #F57920;
-}
+
+
+/*
+    RANDOM STYLE
+*/
+
+
 .disable{
     border: 1px solid #00000056 !important;
     color: #00000056 !important;
@@ -468,6 +536,170 @@ textarea{
     font-weight: 500; 
     line-height: 120%;
 }
+
+
+/*
+    CEO INFO STYLE
+*/
+
+
+.own-info .info-title,
+.own-info .info{
+    font-family: "Poppins", serif;
+}
+.own-info .info-title span{
+    color: #FD853A;
+    font-weight: 700;
+    line-height: 110%;
+    font-size: 20px;
+}
+.own-info .info-title h5{
+    font-weight: 600;
+    line-height: 110%;
+    font-size: 32px;
+}
+.own-info .info h5{
+    font-weight: 400;
+    line-height: 110%;
+    font-size: 22px;
+    color: #FD853A;
+}
+.own-info .info span{
+    font-weight: 400;
+    line-height: 125%;
+    font-size: 19px;
+}
+.own-info .info-btn{
+    height: 50px;
+}
+.own-info .info-btn button{
+    background: #FD853A;
+    height: inherit;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+
+/*
+    HOW WE STYLE
+*/
+
+
+.hw-wrk{
+    font-family: "Poppins", serif;
+}
+.hw-wrk span{
+    color: #FD853A;
+    font-weight: 700;
+    line-height: 110%;
+    font-size: 20px;
+    letter-spacing: -0.015em;
+}
+.hw-wrk h5{
+    font-weight: 600;
+    line-height: 110%;
+    font-size: 32px;
+    letter-spacing: -0.015em;
+}
+.hw-w-wrk div{
+    position: relative;
+    overflow: hidden !important;
+    Width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 2px 2px 5px 0px #00000040;
+    border: 1px solid #0000004A;
+    cursor: pointer;
+}
+.hw-w-wrk div::before{
+    position: absolute;
+    content: "";
+    width: 60%;
+    height: 200%;
+    background: #F57920;
+    transform: rotate(45deg);
+    left: 40px;
+    top: -80px;
+    opacity: 0;
+}
+.hw-w-wrk div:hover::before{
+    opacity: 1;
+    transition: transform 0.3s ease;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+.hw-w-wrk div::after{
+    position: absolute;
+    content: "";
+    inset: 3px;
+    background: #fff;
+    border-radius: 15px;
+}
+.hw-w-wrk div h6{
+    position: relative;
+    font-family: 'Porter Sans Block Block';
+    font-size: 120px;
+    font-weight: 500;
+    line-height: 150px;
+    letter-spacing: -0.015em;
+    background: #0000001A;
+    background-clip: text;  
+    color: transparent;
+    margin: 0 !important;
+    z-index: 5;
+}
+.hw-w-wrk div span{
+    position: relative;
+    font-family: "Poppins", serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.015em; 
+    z-index: 5;
+}
+
+
+/*
+    TESTIMONAIL STYLE
+*/
+
+
+.tes-head{
+    font-family: "Poppins", serif;
+}
+.tes-head span{
+    color: #FD853A;
+    font-weight: 700;
+    line-height: 110%;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+}
+.tes-head h5{
+    font-weight: 600;
+    line-height: 110%;
+    font-size: 40px;
+    letter-spacing: -0.015em;
+}
+.tes-body{
+    width: 600px;
+    height: 250px;
+    border: 1px solid #00000036;
+    box-shadow: 4px 4px 4px 0px #FD853A30 inset,
+                4px 4px 4px 0px #FD853A29;
+}
+
 @media only screen and (max-width: 500px) {
     .footer-bar div .lg{
         height: 32px;
@@ -492,14 +724,23 @@ textarea{
     .help{
         height: 25vh;
     }
+    .hw-w-wrk div{
+        Width: 220px;
+    }
+    .hw-w-wrk div h6{
+        font-size: 80px;
+    }
+    .hw-w-wrk div span{
+        font-size: 19px;
+    }
 }
 @media only screen and (min-width: 992px) {
     body,
     html{
         height: 100vh;
     }
-    .head-con2 {
-        height: 70px;
+    .navbar-expand-lg .offcanvas {
+        height: 70px !important;
         background-color: transparent !important;
     }
     .home {
@@ -518,21 +759,21 @@ textarea{
         width: 187px !important;
     }
     .servi{
-        height: 450px;
+        height: 280px;
         width: 395px;
     }
     .servi div {
         width: 395px;
     }
-    .servi div h2{
+    .servi div h1{
         font-weight: 550;
-        font-size: 26px;
+        font-size: 22px;
     }
-    .servi div span{
+    .servi div p{
         font-weight: 450;
-        font-size: 15px;
+        font-size: 14px;
     }
-    .serv h3 {
+    .serv h2 {
         font-size: 40px;
     }
     .servi div img {
@@ -606,6 +847,21 @@ textarea{
     }
     .contact .button{
         width: 360px;
+    }
+    .own-info .info h5{
+        font-size: 30px;
+    }
+    .own-info .info span{
+        font-size: 25px;
+    }
+    .hw-wrk span{
+        font-size: 22px;
+    }
+    .hw-wrk h5{
+        font-size: 40px;
+    }
+    .hw-w-wrk div{
+        Width: 293px;
     }
 }
 @media only screen and (min-width: 1028px) {
