@@ -7,7 +7,7 @@ const heroBody = document.getElementById('hero-body');
 const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
 const navlink = document.querySelectorAll('.nav-item a');
-const mobileNav = document.getElementById('offcanvasNavbar')
+const mobileNav = document.getElementById('offcanvasNavbar.0')
 import { appointmentBookink } from "./form.js";
 
 const teamsImg = [
@@ -141,7 +141,7 @@ function changeContent () {
                 </div>
             </div>
             <div class="col-lg-5 col-12 p-0 con2">
-                <form action="" class="col-12 d-flex flex-column gap-2" id="form-holder-con">
+                <form action="" class="col-12 d-flex flex-column gap-2 form-holder-con" id="form-holder-con">
                     <div class="row m-0 p-0 gap-lg-5 gap-2 col-12 in-dual">
                         <div class="col-lg-5 col-12 p-0">
                             <input class="form-control" type="text" name="userName" id="userName" placeholder="Name">
@@ -174,7 +174,7 @@ function changeContent () {
                 <div>
                     <h4>Appointment</h4>
                 </div>
-                <form action="" class="col-12 d-flex flex-column align-items-center gap-3 form" id="form-holder-con">
+                <form action="" class="col-12 d-flex flex-column align-items-center gap-3 form form-holder-con" id="form-holder-con">
                     <div class="row m-0 p-0 gap-lg-5 gap-3 col-12 in-dual">
                         <div class="col-lg-5 col-12 p-0">
                             <input class="form-control" type="text" name="userName" id="userName" placeholder="Name">
