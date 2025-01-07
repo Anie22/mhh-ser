@@ -18,8 +18,7 @@ function urlLink() {
     return BaseURL
 }
 
-export function appointmentBookink () {
-    
+
     const mobile = window.innerWidth < 992;
 
     const form = document.getElementById('Mform-holder-con');
@@ -29,10 +28,10 @@ export function appointmentBookink () {
     const warning = document.getElementById('Mwarning');
     const warning2 = document.getElementById('Mwarning2');
     const warning3 = document.getElementById('Mwarning3');
-    const loader = document.getElementById('loader');
-    const body = document.getElementById('body');
-    const messageBox = document.getElementById('msg-box');
-    const msgContent = document.getElementById('api-res-msg');
+    // const loader = document.getElementById('loader');
+    // const body = document.getElementById('body');
+    // const messageBox = document.getElementById('msg-box');
+    // const msgContent = document.getElementById('api-res-msg');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -133,7 +132,7 @@ export function appointmentBookink () {
     message.addEventListener('input', () => {
         warning3.textContent = '';
     });
-}
+
 
 bookingForm.addEventListener('submit', async (e) => {
     e.preventDefault();

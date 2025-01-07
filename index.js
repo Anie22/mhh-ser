@@ -8,7 +8,6 @@ const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
 const navlink = document.querySelectorAll('.nav-item a');
 const mobileNav = document.getElementById('offcanvasNavbar')
-import { appointmentBookink } from "./form.js";
 
 const teamsImg = [
     {img: 'boss.svg'},
@@ -198,8 +197,6 @@ function changeContent () {
         `
         heroBody.innerHTML = addHeroBody;
     };
-
-    appointmentBookink();
 }
 
 changeContent();
