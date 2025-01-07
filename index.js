@@ -164,7 +164,7 @@ function changeContent () {
             </div>
         `
         heroBody.innerHTML = addHeroBody // add the desktop form 
-
+        
         appointmentBookink();
     } else {
         const addHeroHeading = `
@@ -180,16 +180,16 @@ function changeContent () {
                 <form class="col-12 d-flex flex-column align-items-center gap-3 form" id="form-holder-con">
                     <div class="row m-0 p-0 gap-lg-5 gap-3 col-12 in-dual">
                         <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="text" name="userName" placeholder="Name">
+                            <input class="form-control" type="text" name="userName" id="MuserName" placeholder="Name">
                             <span class="text-danger error text-capitalize" id="warning"></span>
                         </div>
                         <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="email" name="userEmail" id="userEmail" placeholder="Email">
+                            <input class="form-control" type="email" name="userEmail" id="MuserEmail" placeholder="Email">
                             <span class="text-danger error text-capitalize" id="warning2"></span>
                         </div>
                     </div>
                     <div class="col-12">
-                        <textarea class="form-control txt-area" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                        <textarea class="form-control txt-area" name="message" id="Mmessage" cols="30" rows="10" placeholder="Message"></textarea>
                         <span class="text-danger error text-capitalize" id="warning3"></span>
                     </div>
                     <div class="mt-2">

@@ -20,9 +20,11 @@ function urlLink() {
 
 export function appointmentBookink () {
     const form = document.getElementById('form-holder-con');
-    const userName = document.getElementById('userName');
-    const userEmail = document.getElementById('userEmail');
-    const message = document.getElementById('message');
+    const mobile = window.innerWidth < 992;
+
+    const userName = document.getElementById(mobile ? 'MuserName' : 'userName');
+    const userEmail = document.getElementById(mobile ? 'MuserEmail' : 'userEmail');
+    const message = document.getElementById(mobile? 'Mmessage' : 'message');
     const warning = document.getElementById('warning');
     const warning2 = document.getElementById('warning2');
     const warning3 = document.getElementById('warning3');
