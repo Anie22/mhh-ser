@@ -120,8 +120,18 @@ preBut.addEventListener('click', () => {
 
 activeButtons();
 
+function cleanUpEventListeners() {
+    const oldForm = document.querySelector('.form-holder-con');
+    if (oldForm) {
+        const newForm = oldForm.cloneNode(true);
+        oldForm.parentNode.replaceChild(newForm, oldForm);
+    }
+}
+
 // dynamically handle the different content on the hero section
 function changeContent () {
+    cleanUpEventListeners();
+
     if(window.innerWidth >= 992){
         const addHeroHeading = `
             <h6>Contact me</h6>
