@@ -149,50 +149,50 @@ textarea{
     color: #666666;
     font-family: "Work Sans", serif;
 }
-.con3{
+.con2{
     background: #ffffff;
     height: fit-content;
     border-radius: 15px;
 }
-.con3 h4{
+.con2 h4{
     font-family: "Urbanist", serif;
     font-weight: 700;
     font-size: 22px;
 }
-.con3 .form .form-control{
+.con2 .form .form-control{
     border-radius: 0px !important;
     background: transparent;
     border: none;
     border-bottom: 1px solid #4D4D4D;
 }
-.con3 .form .form-control:focus{
+.con2 .form .form-control:focus{
     outline: none;
     box-shadow: none;
     border-color: transparent !important;
     border-bottom: 1px solid #4D4D4D !important;
 }
-.con3 .form input,
-.con3 .form .txt-area{
+.con2 .form input,
+.con2 .form .txt-area{
     font-family: "Urbanist", serif;
 }
-.con3 .form .txt-area{
+.con2 .form .txt-area{
     height: 50px !important;
 }
-.con3 .form input::placeholder{
+.con2 .form input::placeholder{
     color: #4D4D4D;
     font-family: "Urbanist", serif;
 }
-.con3 .form .txt-area::placeholder{
+.con2 .form .txt-area::placeholder{
     color: #4D4D4D;
     font-family: "Urbanist", serif;
 }
-.con3 .form button{
+.con2 .form button{
     height: 40px;
     border-radius: 12px;
     background: #F57920;
     font-family: "Urbanist", serif;
 }
-.con3 .form button:hover{
+.con2 .form button:hover{
     background: #ffff;
     color: #F57920;
     border: 2px solid #F57920;
@@ -643,10 +643,10 @@ footer .footer-bar{
 .hw-w-wrk div::after{
     position: absolute;
     content: "";
-    width: 97%;
-    height: 96%;
+    width: 98.5%;
+    height: 97.5%;
     background: #fff;
-    inset: 4px;
+    inset: 2px;
     border-radius: 15px;
 }
 .hw-w-wrk div h6{
@@ -743,12 +743,19 @@ footer .footer-bar{
     background: hsl(0, 0%, 70%);
     border-radius: 50%;
 }
-.btn-tes-dot .dot:hover:before{
+.btn-tes-dot .dot:hover::before{
     background: #FD853A;
 }
 .btn-tes-dot .dot:hover,
 .btn-tes-dot .dot:hover:before{
     border: 1px solid #FD853A;
+}
+.btn-tes-dot .dot.active,
+.btn-tes-dot .dot.active:before{
+    border: 1px solid #FD853A;
+}
+.btn-tes-dot .dot.active:before{
+    background: #FD853A;
 }
 
 
@@ -841,7 +848,7 @@ footer .footer-bar{
     .big-circle{
         transform: translateY(70px);
     }
-    .con3{
+    .con2{
         background: transparent;
     }
     .why-hol .img-hol img{

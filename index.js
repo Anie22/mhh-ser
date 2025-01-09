@@ -6,6 +6,9 @@ const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
 const navlink = document.querySelectorAll('.nav-item a');
 const mobileNav = document.getElementById('offcanvasNavbar');
+const slider = document.querySelector('.tes-slider');
+const tesBodies = document.querySelectorAll('.tes-body');
+const dots = document.querySelectorAll('.dot');
 
 const teamsImg = [
     {img: 'man.svg'},
@@ -346,3 +349,39 @@ navlink.forEach(nav => {
         console.log(25)
     })
 })
+
+let currentIndex = 0; 
+let cardWidt = tesBodies[0].offsetWidth; // Get width of the first card
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+    currentIndex = index;
+    updateSlider();
+    });
+});
+
+const checkScreenWidth = () => {
+    if(window.innerWidth >= 992){
+        cardWidt = tesBodies[0].offsetWidth;
+    } else {
+        cardWidt = tesBodies[0].offsetWidth + 17;
+    }
+}
+
+function updateSlider() {
+    tesBodies.forEach((body, index) => {
+    body.style.transform = `translateX(${-currentIndex * cardWidt}px)`; 
+    });
+
+    // Update active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
+
+    checkScreenWidth();
+}
+// Initial dot activation
+dots[0].classList.add('active'); 
+
+checkScreenWidth();
+
+window.addEventListener('resize', checkScreenWidth);

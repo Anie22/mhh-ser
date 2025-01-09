@@ -40,7 +40,25 @@ function renderHeroContent() {
                 </div>
             </div>
             <div class="col-lg-5 col-12 p-0 con2">
-                ${renderForm('form-holder-con', 'userName', 'userEmail', 'message', 'warning', 'warning2', 'warning3')}
+                <form action="" class="col-12 d-flex flex-column gap-2" id="form-holder-con">
+                    <div class="row m-0 p-0 gap-lg-5 gap-2 col-12 in-dual">
+                        <div class="col-lg-5 col-12 p-0">
+                            <input class="form-control" type="text" name="userName" id="userName" placeholder="Name">
+                            <span class="text-danger error text-capitalize" id="warning"></span>
+                        </div>
+                        <div class="col-lg-5 col-12 p-0">
+                            <input class="form-control" type="email" name="userEmail" id="userEmail" placeholder="Email">
+                            <span class="text-danger error text-capitalize" id="warning2"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="How can we help you?"></textarea>
+                        <span class="text-danger error text-capitalize" id="warning3"></span>
+                    </div>
+                    <div>
+                        <button class="button" type="submit">Send message</button>
+                    </div>
+                </form>
             </div>
         `;
     } else {
@@ -48,50 +66,43 @@ function renderHeroContent() {
             <h4 class="h4">We <span>Provide</span> Best <span>IT</span> Solutions</h4>
         `;
         heroBody.innerHTML = `
-            <div class="d-flex flex-column align-items-center gap-4 col-12 py-3 px-3 con2 con3">
+            <div class="d-flex flex-column align-items-center gap-4 col-12 py-3 px-3 con2">
                 <div>
                     <h4>Appointment</h4>
                 </div>
-                ${renderForm('form-holder-con', 'MuserName', 'MuserEmail', 'Mmessage', 'warning', 'warning2', 'warning3')}
+                <form class="col-12 d-flex flex-column align-items-center gap-3 form" id="form-holder-con">
+                    <div class="row m-0 p-0 gap-lg-5 gap-3 col-12 in-dual">
+                        <div class="col-lg-5 col-12 p-0">
+                            <input class="form-control" type="text" name="userName" id="userName" placeholder="Name">
+                            <span class="text-danger error text-capitalize" id="warning"></span>
+                        </div>
+                        <div class="col-lg-5 col-12 p-0">
+                            <input class="form-control" type="email" name="userEmail" id="userEmail" placeholder="Email">
+                            <span class="text-danger error text-capitalize" id="warning2"></span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control txt-area" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                        <span class="text-danger error text-capitalize" id="warning3"></span>
+                    </div>
+                    <div class="mt-2">
+                        <button class="button" type="submit">Send message</button>
+                    </div>
+                </form>
             </div>
         `;
     }
 }
 
-function renderForm(formId, nameId, emailId, messageId, warningId, warning2Id, warning3Id) {
-    return `
-        <form class="col-12 d-flex flex-column align-items-center gap-3 form" id="${formId}">
-            <div class="row m-0 p-0 gap-lg-5 gap-2 col-12 in-dual">
-                <div class="col-lg-5 col-12 p-0">
-                    <input class="form-control" type="text" name="${nameId}" id="${nameId}" placeholder="Name">
-                    <span class="text-danger error text-capitalize" id="${warningId}"></span>
-                </div>
-                <div class="col-lg-5 col-12 p-0">
-                    <input class="form-control" type="email" name="${emailId}" id="${emailId}" placeholder="Email">
-                    <span class="text-danger error text-capitalize" id="${warning2Id}"></span>
-                </div>
-            </div>
-            <div class="col-12">
-                <textarea class="form-control txt-area" name="${messageId}" id="${messageId}" cols="30" rows="10" placeholder="How can we help you?"></textarea>
-                <span class="text-danger error text-capitalize" id="${warning3Id}"></span>
-            </div>
-            <div>
-                <button class="button" type="submit">Send message</button>
-            </div>
-        </form>
-    `;
-}
-
 
 function attachFormLogic() {
-    const isDesktop = window.innerWidth >= 992; // Correctly check for desktop vs mobile
     const form = document.querySelector('form');
     if (!form) return;
 
     // Get input elements based on the mode (desktop or mobile)
-    const userName = form.querySelector(isDesktop ? 'input[name="userName"]' : 'input[name="MuserName"]');
-    const userEmail = form.querySelector(isDesktop ? 'input[name="userEmail"]' : 'input[name="MuserEmail"]');
-    const message = form.querySelector(isDesktop ? 'textarea[name="message"]' : 'textarea[name="Mmessage"]');
+    const userName = form.querySelector('input[name="userName"]');
+    const userEmail = form.querySelector('input[name="userEmail"]');
+    const message = form.querySelector('textarea[name="message"]');
     const warning = form.querySelector('#warning');
     const warning2 = form.querySelector('#warning2');
     const warning3 = form.querySelector('#warning3');
