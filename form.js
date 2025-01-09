@@ -100,12 +100,6 @@ function attachFormLogic() {
     const messageBox = document.getElementById('msg-box');
     const msgContent = document.getElementById('api-res-msg');
 
-    // Ensure elements exist before proceeding
-    if (!userName || !userEmail || !message || !warning || !warning2 || !warning3) {
-        console.error('Form elements are missing');
-        return;
-    }
-
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -221,8 +215,18 @@ function changeContent() {
     attachFormLogic()
 }
 
-changeContent();
-window.addEventListener('resize', changeContent);
+let resizeTimeout;
+
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        // Check if the height change is significant (to avoid reacting to keyboard appearance)
+        const isKeyboard = Math.abs(window.innerHeight - document.documentElement.clientHeight) < 100;
+        if (!isKeyboard) {
+            changeContent();
+        }
+    }, 200);
+});
 
 
 bookingForm.addEventListener('submit', async (e) => {
