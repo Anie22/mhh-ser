@@ -149,50 +149,50 @@ textarea{
     color: #666666;
     font-family: "Work Sans", serif;
 }
-.con2{
+.con3{
     background: #ffffff;
     height: fit-content;
     border-radius: 15px;
 }
-.con2 h4{
+.con3 h4{
     font-family: "Urbanist", serif;
     font-weight: 700;
     font-size: 22px;
 }
-.con2 .form .form-control{
+.con3 .form .form-control{
     border-radius: 0px !important;
     background: transparent;
     border: none;
     border-bottom: 1px solid #4D4D4D;
 }
-.con2 .form .form-control:focus{
+.con3 .form .form-control:focus{
     outline: none;
     box-shadow: none;
     border-color: transparent !important;
     border-bottom: 1px solid #4D4D4D !important;
 }
-.con2 .form input,
-.con2 .form .txt-area{
+.con3 .form input,
+.con3 .form .txt-area{
     font-family: "Urbanist", serif;
 }
-.con2 .form .txt-area{
+.con3 .form .txt-area{
     height: 50px !important;
 }
-.con2 .form input::placeholder{
+.con3 .form input::placeholder{
     color: #4D4D4D;
     font-family: "Urbanist", serif;
 }
-.con2 .form .txt-area::placeholder{
+.con3 .form .txt-area::placeholder{
     color: #4D4D4D;
     font-family: "Urbanist", serif;
 }
-.con2 .form button{
+.con3 .form button{
     height: 40px;
     border-radius: 12px;
     background: #F57920;
     font-family: "Urbanist", serif;
 }
-.con2 .form button:hover{
+.con3 .form button:hover{
     background: #ffff;
     color: #F57920;
     border: 2px solid #F57920;
@@ -272,6 +272,7 @@ textarea{
     color: #F57920;
     flex-direction: column;
     font-weight: 400;
+    background: #ffff;
 }
 .serv-btn-hol .active1{
     background: #F57920;
@@ -373,6 +374,7 @@ textarea{
     color: #F57920;
     flex-direction: column;
     font-weight: 400;
+    background: #fff;
 }
 .btn-hol .active{
     background: #F57920;
@@ -388,8 +390,8 @@ textarea{
 .contact {
     background: hsl(25, 91%, 84%);
 }
-.footer-bar{
-    background: #424242;
+footer .footer-bar{
+    background: #161616;
     height: 100%;
 }
 .footer-bar .div{
@@ -568,7 +570,7 @@ textarea{
 }
 .own-info .info h5{
     font-weight: 400;
-    line-height: 110%;
+    line-height: 120%;
     font-size: 22px;
     color: #FD853A;
 }
@@ -579,6 +581,9 @@ textarea{
 }
 .own-info .info-btn{
     height: 50px;
+}
+.own-info .info-btn a{
+    height: inherit;
 }
 .own-info .info-btn button{
     background: #FD853A;
@@ -613,7 +618,7 @@ textarea{
 }
 .hw-w-wrk div{
     position: relative;
-    overflow: hidden !important;
+    overflow: hidden;
     Width: 100%;
     height: 200px;
     border-radius: 15px;
@@ -625,34 +630,32 @@ textarea{
 .hw-w-wrk div::before{
     position: absolute;
     content: "";
-    width: 60%;
-    height: 200%;
+    width: 100%;
+    height: 100%;
     background: #F57920;
-    transform: rotate(45deg);
-    left: 40px;
-    top: -80px;
+    left: 0;
     opacity: 0;
 }
 .hw-w-wrk div:hover::before{
     opacity: 1;
-    transition: transform 0.3s ease;
-    animation: spin 2s linear infinite;
+    transition: all 0.9s ease;
+    animation: spin 1s alternate-reverse;
 }
 @keyframes spin {
-    from{
-        transform: rotate(0deg);
-        filter: hue-rotate(0deg);
+    0%{
+        transform: rotate(-45deg);
     }
-    to{
-        transform: rotate(360deg);
-        filter: hue-rotate(360deg);
+    100% {
+        transform: rotate(45deg);
     }
 }
 .hw-w-wrk div::after{
     position: absolute;
     content: "";
-    inset: 3px;
+    width: 97%;
+    height: 96%;
     background: #fff;
+    inset: 4px;
     border-radius: 15px;
 }
 .hw-w-wrk div h6{
@@ -684,28 +687,108 @@ textarea{
 */
 
 
-.tes-head{
+.tes-head,
+.tes-body-con div{
     font-family: "Poppins", serif;
 }
 .tes-head span{
     color: #FD853A;
     font-weight: 700;
     line-height: 110%;
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: -0.015em;
 }
 .tes-head h5{
     font-weight: 600;
     line-height: 110%;
-    font-size: 40px;
+    font-size: 30px;
     letter-spacing: -0.015em;
 }
 .tes-body{
-    width: 600px;
-    height: 250px;
+    width: 280px;
+    height: 370px;
     border: 1px solid #00000036;
-    box-shadow: 4px 4px 4px 0px #FD853A30 inset,
-                4px 4px 4px 0px #FD853A29;
+    box-shadow: 10px 6px 6px 0px #FD853A30 inset,
+                6px 10px 6px 0px #FD853A29;
+    flex: 0 0 auto;
+}
+.tes-body .img-tes{
+    height: 30%;
+}
+.tes-body-con div p{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 110%;
+    letter-spacing: -0.015em;
+    text-align: left;
+}
+.tes-body-con div .fa{
+    font-size: 16px;
+    color: #FFD83A;
+
+}
+.tes-body-con div span{
+    font-size: 20px;
+    color: #000000B0;
+    font-weight: 600;
+}
+.btn-tes-dot .dot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.btn-tes-dot .dot::before{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: hsl(0, 0%, 70%);
+    border-radius: 50%;
+}
+.btn-tes-dot .dot:hover:before{
+    background: #FD853A;
+}
+.btn-tes-dot .dot:hover,
+.btn-tes-dot .dot:hover:before{
+    border: 1px solid #FD853A;
+}
+
+
+/*
+    LOCATION STYLE    
+*/
+
+
+.location{
+    background-image: url(img/location.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 60svh;
+}
+.loc-inner{
+    background: hsla(0, 0%, 0%, 0.72);
+}
+.loc-head h5{
+    font-family: "Poppins", serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.015em; 
+    color: #fff;
+}
+.loc-head h5 span{
+    color: #F57920;
+    border-bottom: 2px solid #fff;
+}
+.loc-img img{
+    height: 60px;
+    width: 60px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -741,6 +824,12 @@ textarea{
     .hw-w-wrk div span{
         font-size: 19px;
     }
+    .tes-body{
+        width: 370px;
+    }
+    .tes-body .img-tes{
+        height: 38%;
+    }
 }
 @media only screen and (min-width: 992px) {
     body,
@@ -757,7 +846,7 @@ textarea{
     .big-circle{
         transform: translateY(70px);
     }
-    .con2{
+    .con3{
         background: transparent;
     }
     .why-hol .img-hol img{
@@ -806,7 +895,7 @@ textarea{
         gap: 0px;
     }
     .help{
-        height: 70vh;
+        height: 40vh;
     }
     .help-txt div h5{
         font-size: 36px;
@@ -871,6 +960,34 @@ textarea{
     .hw-w-wrk div{
         Width: 293px;
     }
+    .tes-body .img-tes{
+        height: 100%;
+    }
+    .tes-body{
+        width: 600px;
+        height: 270px;
+    }
+    .tes-head span{
+        font-size: 22px;
+    }
+    .tes-head h5{
+        font-size: 40px;
+    }
+    .tes-body-con div p{
+        font-size: 22px;
+    }
+    .tes-body-con div span{
+        font-size: 23px;
+    }
+    .loc-head h5{
+        font-size: 50px;
+    }
+    .loc-head h5 span{
+        border-bottom: 5px solid #fff;
+    }
+    .location{
+        height: 80vh;
+    }
 }
 @media only screen and (min-width: 1028px) {
     .in-dual input{
@@ -888,5 +1005,10 @@ textarea{
     }
     .help-txt div h5{
         font-size: 40px;
+    } 
+}
+@media only screen and (min-width: 1024px) {
+    .help{
+        height: 70vh;
     }
 }

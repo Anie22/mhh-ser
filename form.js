@@ -2,6 +2,8 @@ const bookingForm = document.getElementById('con-form');
 const fullName = document.getElementById('fullName');
 const email = document.getElementById('email');
 const phoneNumber = document.getElementById('phoneNumber');
+const heroHeading = document.getElementById('hero-heading');
+const heroBody = document.getElementById('hero-body');
 const message2 = document.getElementById('message2');
 const error = document.getElementById('error');
 const error2 = document.getElementById('error2');
@@ -18,120 +20,202 @@ function urlLink() {
     return BaseURL
 }
 
+function renderHeroContent() {
+    const isDesktop = window.innerWidth >= 992;
 
-    const mobile = window.innerWidth < 992;
+    if (isDesktop) {
+        heroHeading.innerHTML = `
+            <h6>Contact me</h6>
+            <h3>Book An Appointment To Get Started</h3>
+        `;
+        heroBody.innerHTML = `
+            <div class="col-lg-4 col-12 bg-white p-3 con">
+                <div class="fw-bold">
+                    <span>Whats-app:</span>
+                    <span>+92-3004774414</span>
+                </div>
+                <div class="fw-bold">
+                    <span>Phone:</span>
+                    <span>+92-322-6933463</span>
+                </div>
+            </div>
+            <div class="col-lg-5 col-12 p-0 con2">
+                ${renderForm('form-holder-con', 'userName', 'userEmail', 'message', 'warning', 'warning2', 'warning3')}
+            </div>
+        `;
+    } else {
+        heroHeading.innerHTML = `
+            <h4 class="h4">We <span>Provide</span> Best <span>IT</span> Solutions</h4>
+        `;
+        heroBody.innerHTML = `
+            <div class="d-flex flex-column align-items-center gap-4 col-12 py-3 px-3 con2 con3">
+                <div>
+                    <h4>Appointment</h4>
+                </div>
+                ${renderForm('form-holder-con', 'userName', 'userEmail', 'message', 'warning', 'warning2', 'warning3')}
+            </div>
+        `;
+    }
+}
 
-    const form = document.getElementById('Mform-holder-con');
-    const userName = document.getElementById('MuserName');
-    const userEmail = document.getElementById('MuserEmail');
-    const message = document.getElementById('Mmessage');
-    const warning = document.getElementById('Mwarning');
-    const warning2 = document.getElementById('Mwarning2');
-    const warning3 = document.getElementById('Mwarning3');
-    // const loader = document.getElementById('loader');
-    // const body = document.getElementById('body');
-    // const messageBox = document.getElementById('msg-box');
-    // const msgContent = document.getElementById('api-res-msg');
+function renderForm(formId, nameId, emailId, messageId, warningId, warning2Id, warning3Id) {
+    return `
+        <form class="col-12 d-flex flex-column align-items-center gap-3 form" id="${formId}">
+            <div class="row m-0 p-0 gap-lg-5 gap-2 col-12 in-dual">
+                <div class="col-lg-5 col-12 p-0">
+                    <input class="form-control" type="text" name="${nameId}" id="${nameId}" placeholder="Name">
+                    <span class="text-danger error text-capitalize" id="${warningId}"></span>
+                </div>
+                <div class="col-lg-5 col-12 p-0">
+                    <input class="form-control" type="email" name="${emailId}" id="${emailId}" placeholder="Email">
+                    <span class="text-danger error text-capitalize" id="${warning2Id}"></span>
+                </div>
+            </div>
+            <div class="col-12">
+                <textarea class="form-control txt-area" name="${messageId}" id="${messageId}" cols="30" rows="10" placeholder="How can we help you?"></textarea>
+                <span class="text-danger error text-capitalize" id="${warning3Id}"></span>
+            </div>
+            <div>
+                <button class="button" type="submit">Send message</button>
+            </div>
+        </form>
+    `;
+}
+
+
+function attachFormLogic() {
+    const form = document.querySelector('form');
+    if (!form) return;
+
+    // Get input elements
+    const userName = form.querySelector('input[name="userName"]');
+    const userEmail = form.querySelector('input[name="userEmail"]');
+    const message = form.querySelector('textarea[name="message"]');
+    const warning = form.querySelector('#warning');
+    const warning2 = form.querySelector('#warning2');
+    const warning3 = form.querySelector('#warning3');
+    const loader = document.getElementById('loader');
+    const body = document.body;
+    const messageBox = document.getElementById('msg-box');
+    const msgContent = document.getElementById('api-res-msg');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        console.log('boss')
-    
-        let Error = false;
-    
-        if(userName.value.trim() == ''){
-            warning.textContent = 'This field is required'
-            Error = true
+        let hasError = false;
+
+        // Validate inputs
+        if (userName.value.trim() === '') {
+            warning.textContent = 'Name is required';
+            hasError = true;
         } else {
-            warning.textContent = ''
+            warning.textContent = '';
         }
-    
-        if(userEmail.value.trim() == ''){
-            warning2.textContent = 'This field is required'
-            Error = true
+
+        if (userEmail.value.trim() === '') {
+            warning2.textContent = 'Email is required';
+            hasError = true;
+        } else if (!/^\S+@\S+\.\S+$/.test(userEmail.value.trim())) {
+            warning2.textContent = 'Enter a valid email address';
+            hasError = true;
         } else {
-            warning2.textContent = ''
+            warning2.textContent = '';
         }
-    
-        if(message.value.trim() == ''){
-            warning3.textContent = 'This field is required'
-            Error = true
+
+        if (message.value.trim() === '') {
+            warning3.textContent = 'Message is required';
+            hasError = true;
         } else {
-            warning3.textContent = ''
+            warning3.textContent = '';
         }
-    
-        if(!Error) {
-    
-            const formData = {
-                userName: userName.value.trim(),
-                userEmail: userEmail.value.trim(),
-                message: message.value.trim()
+
+        // If there are validation errors, stop submission
+        if (hasError) return;
+
+        // Prepare form data
+        const formData = {
+            userName: userName.value.trim(),
+            userEmail: userEmail.value.trim(),
+            message: message.value.trim(),
+        };
+
+        // Show loader and disable scrolling
+        loader.style.display = 'block';
+        body.style.overflow = 'hidden';
+
+        try {
+            // Send data to API
+            const response = await fetch('https://mhm-tech-api.onrender.com/appoint-booking', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            // Check if response is ok
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Something went wrong');
             }
-    
-            loader.style.display = 'block'
-            body.style.overflow = 'hidden'
-    
-            try {
-                const response = await fetch('https://mhm-tech-api.onrender.com/appoint-booking', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-    
-                })
 
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    console.error('Server error:', errorData); // Log the server's response
-                }
-    
-                if(response){
-                    const res = await response.json()
-                    loader.style.display = 'none'
-                    msgContent.textContent = res.message
-                    messageBox.style.display = 'block'
-                    body.style.overflow = 'auto'
-    
-                    setTimeout(() => {
-                        if(messageBox) {
-                            messageBox.style.display = 'none'
-                        }
-                    }, 3000);
-                }
-            } catch (err) {
-                if(err) {
-                    loader.style.display = 'none'
-                    body.style.overflow = 'auto'
-                    msgContent.textContent = err
-                    messageBox.style.display = 'block'
+            // Parse response
+            const res = await response.json();
 
-                    console.log(err)
-                    
-                    setTimeout(() => {
-                        if(messageBox) {
-                            messageBox.style.display = 'none'
-                        }
-                    }, 3000);
-                }
+            // Hide loader
+            loader.style.display = 'none';
+            body.style.overflow = 'auto';
 
-                console.log(err)
-            }
+            // Show success message
+            msgContent.textContent = res.message || 'Appointment booked successfully!';
+            messageBox.style.display = 'block';
+
+            // Hide message box after 3 seconds
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 3000);
+
+            // Reset form
+            form.reset();
+        } catch (err) {
+            // Hide loader
+            loader.style.display = 'none';
+            body.style.overflow = 'auto';
+
+            // Show error message
+            msgContent.textContent = err.message || 'Failed to submit the form';
+            messageBox.style.display = 'block';
+
+            // Hide message box after 3 seconds
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 3000);
+
+            console.error(err);
         }
     });
-    
+
+    // Clear warnings on input
     userName.addEventListener('input', () => {
-        warning.textContent = ''
+        warning.textContent = '';
     });
-    
+
     userEmail.addEventListener('input', () => {
         warning2.textContent = '';
     });
-    
+
     message.addEventListener('input', () => {
         warning3.textContent = '';
     });
+}
+
+function changeContent() {
+    renderHeroContent();
+    attachFormLogic()
+}
+
+changeContent();
+window.addEventListener('resize', changeContent);
 
 
 bookingForm.addEventListener('submit', async (e) => {

@@ -2,12 +2,10 @@ const team = document.getElementById('team');
 const preBut = document.getElementById('prev');
 const nextBut = document.getElementById('next');
 const service = document.getElementById('services');
-const heroHeading = document.getElementById('hero-heading');
-const heroBody = document.getElementById('hero-body');
 const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
 const navlink = document.querySelectorAll('.nav-item a');
-const mobileNav = document.getElementById('offcanvasNavbar')
+const mobileNav = document.getElementById('offcanvasNavbar');
 
 const teamsImg = [
     {img: 'boss.svg'},
@@ -118,90 +116,6 @@ preBut.addEventListener('click', () => {
 });
 
 activeButtons();
-
-// dynamically handle the different content on the hero section
-function changeContent () {
-
-    if(window.innerWidth >= 992){
-        const addHeroHeading = `
-            <h6>Contact me</h6>
-            <h3>Book An Appointment To Get Started</h3>
-        `
-        heroHeading.innerHTML = addHeroHeading // add the desktop hero header
-
-        const addHeroBody = `
-            <div class="col-lg-4 col-12 bg-white p-3 con">
-                <div class="fw-bold">
-                    <span>Whats-app:</span>
-                    <span>+92-3004774414</span>
-                </div>
-                <div class="fw-bold">
-                    <span>Phone:</span>
-                    <span>+92-322-6933463</span>
-                </div>
-            </div>
-            <div class="col-lg-5 col-12 p-0 con2">
-                <form action="" class="col-12 d-flex flex-column gap-2" id="form-holder-con">
-                    <div class="row m-0 p-0 gap-lg-5 gap-2 col-12 in-dual">
-                        <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="text" name="userName" id="userName" placeholder="Name">
-                            <span class="text-danger error text-capitalize" id="warning"></span>
-                        </div>
-                        <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="email" name="userEmail" id="userEmail" placeholder="Email">
-                            <span class="text-danger error text-capitalize" id="warning2"></span>
-                        </div>
-                    </div>
-                    <div>
-                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="How can we help you?"></textarea>
-                        <span class="text-danger error text-capitalize" id="warning3"></span>
-                    </div>
-                    <div>
-                        <button class="button" type="submit">Send message</button>
-                    </div>
-                </form>
-            </div>
-        `
-        heroBody.innerHTML = addHeroBody // add the desktop form 
-    } else {
-        const addHeroHeading = `
-            <h4 class="h4">We <span>Provide</span> Best <span>IT</span> Solutions</h4>
-        `
-        heroHeading.innerHTML = addHeroHeading
-
-        const addHeroBody = `
-            <div class="d-flex flex-column align-items-center gap-4 col-12 py-3 px-3 con2">
-                <div>
-                    <h4>Appointment</h4>
-                </div>
-                <form class="col-12 d-flex flex-column align-items-center gap-3 form" id="Mform-holder-con">
-                    <div class="row m-0 p-0 gap-lg-5 gap-3 col-12 in-dual">
-                        <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="text" name="userName" id="MuserName" placeholder="Name">
-                            <span class="text-danger error text-capitalize" id="Mwarning"></span>
-                        </div>
-                        <div class="col-lg-5 col-12 p-0">
-                            <input class="form-control" type="email" name="userEmail" id="MuserEmail" placeholder="Email">
-                            <span class="text-danger error text-capitalize" id="Mwarning2"></span>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <textarea class="form-control txt-area" name="message" id="Mmessage" cols="30" rows="10" placeholder="Message"></textarea>
-                        <span class="text-danger error text-capitalize" id="Mwarning3"></span>
-                    </div>
-                    <div class="mt-2">
-                        <button class="button" type="submit">Send message</button>
-                    </div>
-                </form>
-            </div>
-        `
-        heroBody.innerHTML = addHeroBody;
-    };
-}
-
-changeContent();
-
-window.addEventListener('resize', changeContent); // pays attension for change in width
 
 const ser = document.querySelectorAll('.servi'); // gets all the cards
 const ser_pre = document.getElementById('prev-ser');
