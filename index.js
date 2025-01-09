@@ -8,14 +8,15 @@ const navlink = document.querySelectorAll('.nav-item a');
 const mobileNav = document.getElementById('offcanvasNavbar');
 
 const teamsImg = [
-    {img: 'boss.svg'},
-    {img: 'sw.svg'},
-    {img: 'legal.svg'},
-    {img: 'ani.svg'},
+    {img: 'man.svg'},
     {img: 'sm.svg'},
+    {img: 'sw.svg'},
+    {img: 'ani.svg'},
     {img: 'gd.svg'},
     {img: 've.svg'},
-    {img: 'fsw.svg'}
+    {img: 'fsw.svg'},
+    {img: 'boss.svg'},
+    {img: 'legal.svg'},
 ];
 
 const serviceInfo = [

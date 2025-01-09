@@ -639,15 +639,6 @@ footer .footer-bar{
 .hw-w-wrk div:hover::before{
     opacity: 1;
     transition: all 0.9s ease;
-    animation: spin 1s alternate-reverse;
-}
-@keyframes spin {
-    0%{
-        transform: rotate(-45deg);
-    }
-    100% {
-        transform: rotate(45deg);
-    }
 }
 .hw-w-wrk div::after{
     position: absolute;
@@ -708,9 +699,10 @@ footer .footer-bar{
     width: 280px;
     height: 470px;
     border: 1px solid #00000036;
-    box-shadow: 10px 6px 6px 0px #FD853A30 inset,
-                6px 10px 6px 0px #FD853A29;
+    box-shadow: 2px 1px 4px 0px #00000040 inset,
+                1px 2px 4px 0px #00000040;
     flex: 0 0 auto;
+    border-radius: 15px;
 }
 .tes-body .img-tes{
     height: 30%;
@@ -969,6 +961,10 @@ footer .footer-bar{
     .tes-body{
         width: 600px;
         height: 270px;
+        border: 1px solid #00000036;
+        box-shadow: 10px 6px 6px 0px #FD853A30 inset,
+                    6px 10px 6px 0px #FD853A29;
+        border-radius: 0px;
     }
     .tes-head span{
         font-size: 22px;
