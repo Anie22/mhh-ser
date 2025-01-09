@@ -215,6 +215,8 @@ function changeContent() {
     attachFormLogic()
 }
 
+changeContent()
+
 let resizeTimeout;
 
 window.addEventListener('resize', () => {
