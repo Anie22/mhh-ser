@@ -391,10 +391,10 @@ const autoSlide = () => {
 };
 
 // Start automatic sliding
-const slideInterval = setInterval(autoSlide, 3000); // Slide every 3 seconds
+const slideInterval = setInterval(autoSlide, 1500); // Slide every 3 seconds
 
 // Pause on hover (optional)
 tesBodies.forEach(body => {
     body.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    body.addEventListener('mouseleave', () => setInterval(autoSlide, 3000));
+    body.addEventListener('mouseleave', () => setInterval(autoSlide, 1500));
 });
