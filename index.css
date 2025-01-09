@@ -794,8 +794,8 @@ footer .footer-bar{
     .footer-bar div .lg{
         height: 32px;
     }
-    .footer-bar .logo-con h2, p {
-        font-size: 11px;
+    .footer-bar .logo-con h2, h3 {
+        font-size: 14px;
     }
 }
 @media only screen and (min-width: 768px) {
