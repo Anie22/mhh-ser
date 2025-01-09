@@ -350,7 +350,7 @@ navlink.forEach(nav => {
 })
 
 let currentIndex = 0; 
-let cardWidt = tesBodies[0].offsetWidth; // Get width of the first card
+let cardWidt = tesBodies[0].offsetWidth + 13; // Get width of the first card
 
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
@@ -359,31 +359,18 @@ dots.forEach((dot, index) => {
     });
 });
 
-const checkScreenWidth = () => {
-    const screenSize = window.innerWidth;
-
-    if(screenSize < 992){
-        cardWidt = tesBodies[0].offsetWidth + 17;
-    }
-}
 
 function updateSlider() {
     tesBodies.forEach((body, index) => {
-    body.style.transform = `translateX(${-currentIndex * cardWidt}px)`; 
+        body.style.transform = `translateX(${-currentIndex * cardWidt}px)`; 
     });
 
     // Update active dot
     dots.forEach(dot => dot.classList.remove('active'));
     dots[currentIndex].classList.add('active');
-
-    checkScreenWidth();
 }
 // Initial dot activation
 dots[0].classList.add('active'); 
-
-checkScreenWidth();
-
-window.addEventListener('resize', checkScreenWidth);
 
 const autoSlide = () => {
     currentIndex = (currentIndex + 1) % tesBodies.length; // Loop back to the first card
@@ -391,10 +378,10 @@ const autoSlide = () => {
 };
 
 // Start automatic sliding
-const slideInterval = setInterval(autoSlide, 1500); // Slide every 3 seconds
+const slideInterval = setInterval(autoSlide, 3500); // Slide every 3 seconds
 
 // Pause on hover (optional)
 tesBodies.forEach(body => {
     body.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    body.addEventListener('mouseleave', () => setInterval(autoSlide, 1500));
+    body.addEventListener('mouseleave', () => setInterval(autoSlide, 3500));
 });
