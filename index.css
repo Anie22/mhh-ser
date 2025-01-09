@@ -706,7 +706,7 @@ footer .footer-bar{
 }
 .tes-body{
     width: 280px;
-    height: 370px;
+    height: 470px;
     border: 1px solid #00000036;
     box-shadow: 10px 6px 6px 0px #FD853A30 inset,
                 6px 10px 6px 0px #FD853A29;
@@ -813,7 +813,7 @@ footer .footer-bar{
         width: 320px;
     }
     .help{
-        height: 25vh;
+        height: 22svh;
     }
     .hw-w-wrk div{
         Width: 220px;
@@ -829,6 +829,9 @@ footer .footer-bar{
     }
     .tes-body .img-tes{
         height: 38%;
+    }
+    .location{
+        height: 25svh;
     }
 }
 @media only screen and (min-width: 992px) {
@@ -986,7 +989,7 @@ footer .footer-bar{
         border-bottom: 5px solid #fff;
     }
     .location{
-        height: 80vh;
+        height: 30vh;
     }
 }
 @media only screen and (min-width: 1028px) {
@@ -1010,5 +1013,8 @@ footer .footer-bar{
 @media only screen and (min-width: 1024px) {
     .help{
         height: 70vh;
+    }
+    .location{
+        height: 80vh;
     }
 }

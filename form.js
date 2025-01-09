@@ -52,7 +52,7 @@ function renderHeroContent() {
                 <div>
                     <h4>Appointment</h4>
                 </div>
-                ${renderForm('form-holder-con', 'userName', 'userEmail', 'message', 'warning', 'warning2', 'warning3')}
+                ${renderForm('form-holder-con', 'MuserName', 'MuserEmail', 'Mmessage', 'warning', 'warning2', 'warning3')}
             </div>
         `;
     }
@@ -84,13 +84,14 @@ function renderForm(formId, nameId, emailId, messageId, warningId, warning2Id, w
 
 
 function attachFormLogic() {
+    const mobile = window.innerWidth >= 992
     const form = document.querySelector('form');
     if (!form) return;
 
     // Get input elements
-    const userName = form.querySelector('input[name="userName"]');
-    const userEmail = form.querySelector('input[name="userEmail"]');
-    const message = form.querySelector('textarea[name="message"]');
+    const userName = form.querySelector(mobile ? 'input[name="userName"]' : 'input[name="MuserName"]');
+    const userEmail = form.querySelector(mobile ? 'input[name="userEmail"]': 'input[name="MuserEmail"]');
+    const message = form.querySelector(mobile ? 'textarea[name="message"]': 'textarea[name="Mmessage"]');
     const warning = form.querySelector('#warning');
     const warning2 = form.querySelector('#warning2');
     const warning3 = form.querySelector('#warning3');
