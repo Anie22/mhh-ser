@@ -84,14 +84,14 @@ function renderForm(formId, nameId, emailId, messageId, warningId, warning2Id, w
 
 
 function attachFormLogic() {
-    const mobile = window.innerWidth >= 992
+    const isDesktop = window.innerWidth >= 992; // Correctly check for desktop vs mobile
     const form = document.querySelector('form');
     if (!form) return;
 
-    // Get input elements
-    const userName = form.querySelector(mobile ? 'input[name="userName"]' : 'input[name="MuserName"]');
-    const userEmail = form.querySelector(mobile ? 'input[name="userEmail"]': 'input[name="MuserEmail"]');
-    const message = form.querySelector(mobile ? 'textarea[name="message"]': 'textarea[name="Mmessage"]');
+    // Get input elements based on the mode (desktop or mobile)
+    const userName = form.querySelector(isDesktop ? 'input[name="userName"]' : 'input[name="MuserName"]');
+    const userEmail = form.querySelector(isDesktop ? 'input[name="userEmail"]' : 'input[name="MuserEmail"]');
+    const message = form.querySelector(isDesktop ? 'textarea[name="message"]' : 'textarea[name="Mmessage"]');
     const warning = form.querySelector('#warning');
     const warning2 = form.querySelector('#warning2');
     const warning3 = form.querySelector('#warning3');
@@ -99,6 +99,12 @@ function attachFormLogic() {
     const body = document.body;
     const messageBox = document.getElementById('msg-box');
     const msgContent = document.getElementById('api-res-msg');
+
+    // Ensure elements exist before proceeding
+    if (!userName || !userEmail || !message || !warning || !warning2 || !warning3) {
+        console.error('Form elements are missing');
+        return;
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
