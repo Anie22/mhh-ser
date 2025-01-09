@@ -360,9 +360,9 @@ dots.forEach((dot, index) => {
 });
 
 const checkScreenWidth = () => {
-    if(window.innerWidth >= 992){
-        cardWidt = tesBodies[0].offsetWidth;
-    } else {
+    const screenSize = window.innerWidth;
+
+    if(screenSize < 992){
         cardWidt = tesBodies[0].offsetWidth + 17;
     }
 }
@@ -384,3 +384,17 @@ dots[0].classList.add('active');
 checkScreenWidth();
 
 window.addEventListener('resize', checkScreenWidth);
+
+const autoSlide = () => {
+    currentIndex = (currentIndex + 1) % tesBodies.length; // Loop back to the first card
+    updateSlider();
+};
+
+// Start automatic sliding
+const slideInterval = setInterval(autoSlide, 3000); // Slide every 3 seconds
+
+// Pause on hover (optional)
+tesBodies.forEach(body => {
+    body.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    body.addEventListener('mouseleave', () => setInterval(autoSlide, 3000));
+});
