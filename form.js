@@ -60,9 +60,10 @@ function renderHeroContent() {
                     </div>
                 </form>
             </div>
-        `;
+        `
+
     } else {
-        heroHeading.innerHTML = `
+        heading.innerHTML = `
             <h4 class="h4">We <span>Provide</span> Best <span>IT</span> Solutions</h4>
         `;
         heroBody.innerHTML = `
@@ -90,7 +91,7 @@ function renderHeroContent() {
                     </div>
                 </form>
             </div>
-        `;
+        `
     }
 }
 

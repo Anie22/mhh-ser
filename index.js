@@ -6,9 +6,9 @@ const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
 const navlink = document.querySelectorAll('.nav-item a');
 const mobileNav = document.getElementById('offcanvasNavbar');
-const slider = document.querySelector('.tes-slider');
-const tesBodies = document.querySelectorAll('.tes-body');
-const dots = document.querySelectorAll('.dot');
+// const slider = document.querySelector('.tes-slider');
+// const tesBodies = document.querySelectorAll('.tes-body');
+// const dots = document.querySelectorAll('.dot');
 
 const teamsImg = [
     {img: 'man.svg'},
@@ -349,39 +349,39 @@ navlink.forEach(nav => {
     })
 })
 
-let currentIndex = 0; 
-let cardWidt = tesBodies[0].offsetWidth + 13; // Get width of the first card
+// let currentIndex = 0; 
+// let cardWidt = tesBodies[0].offsetWidth + 13; // Get width of the first card
 
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-    currentIndex = index;
-    updateSlider();
-    });
-});
+// dots.forEach((dot, index) => {
+//     dot.addEventListener('click', () => {
+//     currentIndex = index;
+//     updateSlider();
+//     });
+// });
 
 
-function updateSlider() {
-    tesBodies.forEach((body, index) => {
-        body.style.transform = `translateX(${-currentIndex * cardWidt}px)`; 
-    });
+// function updateSlider() {
+//     tesBodies.forEach((body, index) => {
+//         body.style.transform = `translateX(${-currentIndex * cardWidt}px)`; 
+//     });
 
-    // Update active dot
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentIndex].classList.add('active');
-}
-// Initial dot activation
-dots[0].classList.add('active'); 
+//     // Update active dot
+//     dots.forEach(dot => dot.classList.remove('active'));
+//     dots[currentIndex].classList.add('active');
+// }
+// // Initial dot activation
+// dots[0].classList.add('active'); 
 
-const autoSlide = () => {
-    currentIndex = (currentIndex + 1) % tesBodies.length; // Loop back to the first card
-    updateSlider();
-};
+// const autoSlide = () => {
+//     currentIndex = (currentIndex + 1) % tesBodies.length; // Loop back to the first card
+//     updateSlider();
+// };
 
-// Start automatic sliding
-const slideInterval = setInterval(autoSlide, 3500); // Slide every 3 seconds
+// // Start automatic sliding
+// const slideInterval = setInterval(autoSlide, 3500); // Slide every 3 seconds
 
-// Pause on hover (optional)
-tesBodies.forEach(body => {
-    body.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    body.addEventListener('mouseleave', () => setInterval(autoSlide, 3500));
-});
+// // Pause on hover (optional)
+// tesBodies.forEach(body => {
+//     body.addEventListener('mouseenter', () => clearInterval(slideInterval));
+//     body.addEventListener('mouseleave', () => setInterval(autoSlide, 3500));
+// });
