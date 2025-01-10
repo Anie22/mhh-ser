@@ -126,133 +126,133 @@ activeButtons();
 
 
 
-// let curIndex = 0;
-// let cardsPerSlide = 3;
-// const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
-// const totalCards = ser.length; // Total number of cards
+let curIndex = 0;
+let cardsPerSlide = 3;
+const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
+const totalCards = ser.length; // Total number of cards
 
-// let isDragging = false;
-// let startX = 0; // Starting X position of drag
-// let currentX = 0; // Current X position during drag
-// let translateX = 0; // Tracks the current translateX value
+let isDragging = false;
+let startX = 0; // Starting X position of drag
+let currentX = 0; // Current X position during drag
+let translateX = 0; // Tracks the current translateX value
 
-// function screenSize() {
-//     const screen = window.innerWidth;
+function screenSize() {
+    const screen = window.innerWidth;
 
-//     if (screen < 800) {
-//         cardsPerSlide = 2;
-//     }
+    if (screen < 800) {
+        cardsPerSlide = 2;
+    }
 
-//     if (screen < 745) {
-//         cardsPerSlide = 1;
-//     }
+    if (screen < 745) {
+        cardsPerSlide = 1;
+    }
 
-//     updateCardPositions();
-// }
+    updateCardPositions();
+}
 
-// function serviceButtonState() {
-//     ser_pre.disabled = curIndex === 0;
-//     ser_next.disabled = curIndex >= totalCards - cardsPerSlide;
+function serviceButtonState() {
+    ser_pre.disabled = curIndex === 0;
+    ser_next.disabled = curIndex >= totalCards - cardsPerSlide;
   
-//     ser_pre.classList.toggle('disable', ser_pre.disabled);
-//     ser_next.classList.toggle('disable', ser_next.disabled);
-// }
+    ser_pre.classList.toggle('disable', ser_pre.disabled);
+    ser_next.classList.toggle('disable', ser_next.disabled);
+}
 
-// function updateCardPositions() {
-//     // Apply translateX to all cards based on curIndex
-//     ser.forEach((services) => {
-//         services.style.transform = `translateX(${-curIndex * cardWidths}px)`;
-//     });
-// }
+function updateCardPositions() {
+    // Apply translateX to all cards based on curIndex
+    ser.forEach((services) => {
+        services.style.transform = `translateX(${-curIndex * cardWidths}px)`;
+    });
+}
 
-// function nextCardSlide(direction) {
-//     // Update curIndex based on direction
-//     curIndex = Math.max(0, Math.min(totalCards - cardsPerSlide, curIndex + direction));
-//     updateCardPositions();
-//     serviceButtonState()
-// }
+function nextCardSlide(direction) {
+    // Update curIndex based on direction
+    curIndex = Math.max(0, Math.min(totalCards - cardsPerSlide, curIndex + direction));
+    updateCardPositions();
+    serviceButtonState()
+}
 
-// // Dragging functionality
-// function handleDragStart(event) {
-//     isDragging = true;
-//     startX = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
-//     translateX = -curIndex * cardWidths; // Set initial translateX value
-// }
+// Dragging functionality
+function handleDragStart(event) {
+    isDragging = true;
+    startX = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
+    translateX = -curIndex * cardWidths; // Set initial translateX value
+}
 
-// function handleDragMove(event) {
-//     if (!isDragging) return;
-//     const currentPos = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
-//     const deltaX = currentPos - startX;
-//     const dragTranslate = translateX + deltaX;
+function handleDragMove(event) {
+    if (!isDragging) return;
+    const currentPos = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+    const deltaX = currentPos - startX;
+    const dragTranslate = translateX + deltaX;
 
-//     ser.forEach((services) => {
-//         services.style.transform = `translateX(${dragTranslate}px)`;
-//         services.style.transition = 'none'; // Disable transition during drag
-//     });
-// }
+    ser.forEach((services) => {
+        services.style.transform = `translateX(${dragTranslate}px)`;
+        services.style.transition = 'none'; // Disable transition during drag
+    });
+}
 
-// function handleDragEnd(event) {
-//     if (!isDragging) return;
-//     const endX = event.type === 'touchend' ? event.changedTouches[0].clientX : event.clientX;
-//     const deltaX = endX - startX;
+function handleDragEnd(event) {
+    if (!isDragging) return;
+    const endX = event.type === 'touchend' ? event.changedTouches[0].clientX : event.clientX;
+    const deltaX = endX - startX;
 
-//     if (deltaX > 50) {
-//         // Dragged right
-//         nextCardSlide(-1);
-//     } else if (deltaX < -50) {
-//         // Dragged left
-//         nextCardSlide(1);
-//     } else {
-//         // Return to original position if drag is too small
-//         updateCardPositions();
-//     }
+    if (deltaX > 50) {
+        // Dragged right
+        nextCardSlide(-1);
+    } else if (deltaX < -50) {
+        // Dragged left
+        nextCardSlide(1);
+    } else {
+        // Return to original position if drag is too small
+        updateCardPositions();
+    }
 
-//     isDragging = false;
-// }
+    isDragging = false;
+}
 
-// // Initial setup
-// screenSize();
-// updateCardPositions();
-// serviceButtonState()
+// Initial setup
+screenSize();
+updateCardPositions();
+serviceButtonState()
 
-// // Event listeners for buttons
-// ser_next.addEventListener('click', () => {
-//     if (!ser_next.disabled) {
-//         ser_next.classList.add('active1');
-//         ser_next.classList.remove('disable');
-//         ser_pre.classList.remove('active1');
-//     } else {
-//         ser_next.classList.remove('active1');
-//         ser_pre.classList.add('active1');
-//         ser_next.classList.add('disable');
-//     }
-//     nextCardSlide(1)
-// });
+// Event listeners for buttons
+ser_next.addEventListener('click', () => {
+    if (!ser_next.disabled) {
+        ser_next.classList.add('active1');
+        ser_next.classList.remove('disable');
+        ser_pre.classList.remove('active1');
+    } else {
+        ser_next.classList.remove('active1');
+        ser_pre.classList.add('active1');
+        ser_next.classList.add('disable');
+    }
+    nextCardSlide(1)
+});
 
-// ser_pre.addEventListener('click', () =>  {
-//     if (!ser_pre.disabled) {
-//         ser_pre.classList.add('active1');
-//         ser_next.classList.remove('active1');
-//         ser_pre.classList.remove('disable');
-//     } else {
-//         ser_pre.classList.remove('active1');
-//         ser_next.classList.add('active1');
-//         ser_pre.classList.add('disable');
-//     }
-//     nextCardSlide(-1)
-// });
+ser_pre.addEventListener('click', () =>  {
+    if (!ser_pre.disabled) {
+        ser_pre.classList.add('active1');
+        ser_next.classList.remove('active1');
+        ser_pre.classList.remove('disable');
+    } else {
+        ser_pre.classList.remove('active1');
+        ser_next.classList.add('active1');
+        ser_pre.classList.add('disable');
+    }
+    nextCardSlide(-1)
+});
 
-// // Drag and touch events
-// const cardContainer = document.querySelector('.card-container'); // Assuming the container has class 'card-container'
-// cardContainer.addEventListener('mousedown', handleDragStart);
-// cardContainer.addEventListener('mousemove', handleDragMove);
-// cardContainer.addEventListener('mouseup', handleDragEnd);
-// cardContainer.addEventListener('mouseleave', handleDragEnd); // Handle drag end if cursor leaves container
-// cardContainer.addEventListener('touchstart', handleDragStart);
-// cardContainer.addEventListener('touchmove', handleDragMove);
-// cardContainer.addEventListener('touchend', handleDragEnd);
+// Drag and touch events
+const cardContainer = document.querySelector('.card-container'); // Assuming the container has class 'card-container'
+cardContainer.addEventListener('mousedown', handleDragStart);
+cardContainer.addEventListener('mousemove', handleDragMove);
+cardContainer.addEventListener('mouseup', handleDragEnd);
+cardContainer.addEventListener('mouseleave', handleDragEnd); // Handle drag end if cursor leaves container
+cardContainer.addEventListener('touchstart', handleDragStart);
+cardContainer.addEventListener('touchmove', handleDragMove);
+cardContainer.addEventListener('touchend', handleDragEnd);
 
-// window.addEventListener('resize', screenSize);
+window.addEventListener('resize', screenSize);
 
 // // Checking if an element is in view port
 // document.addEventListener("DOMContentLoaded", () => {
