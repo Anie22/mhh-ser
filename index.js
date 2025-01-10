@@ -252,53 +252,53 @@ cardContainer.addEventListener('touchend', handleDragEnd);
 
 window.addEventListener('resize', screenSize);
 
-// // Checking if an element is in view port
-// document.addEventListener("DOMContentLoaded", () => {
-//     const headings = document.querySelectorAll('.headings');
-//     const slideUp = document.querySelectorAll('.fot');
-//     const fadeIn = document.querySelectorAll('.foi')
+// Checking if an element is in view port
+document.addEventListener("DOMContentLoaded", () => {
+    const headings = document.querySelectorAll('.headings');
+    const slideUp = document.querySelectorAll('.fot');
+    const fadeIn = document.querySelectorAll('.foi')
 
-//     // Create a function to handle visibility
-//     const observerCallback = (entries, observer) => {
-//         entries.forEach(entry => {
-//             if (entry.isIntersecting) {
-//                 if (entry.target.classList.contains('headings')) {
-//                     entry.target.classList.add('headings-anima'); // Add animation class for headings
-//                 }
-//                 if (entry.target.classList.contains('foi')) {
-//                     entry.target.classList.add('why-con'); // Add animation class for why
-//                 }
-//                 if (entry.target.classList.contains('fot')) {
-//                     entry.target.classList.add('fot-con'); // Add animation class for footer
-//                 }
-//             } else {
-//                 // Remove animation classes if needed when the element leaves the viewport
+    // Create a function to handle visibility
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('headings')) {
+                    entry.target.classList.add('headings-anima'); // Add animation class for headings
+                }
+                if (entry.target.classList.contains('foi')) {
+                    entry.target.classList.add('why-con'); // Add animation class for why
+                }
+                if (entry.target.classList.contains('fot')) {
+                    entry.target.classList.add('fot-con'); // Add animation class for footer
+                }
+            } else {
+                // Remove animation classes if needed when the element leaves the viewport
                 
-//                 if (entry.target.classList.contains('headings')) {
-//                     entry.target.classList.remove('headings-anima');
-//                 }
-//                 if (entry.target.classList.contains('foi')) {
-//                     entry.target.classList.remove('why-con');
-//                 }
-//                 if (entry.target.classList.contains('fot')) {
-//                     entry.target.classList.remove('fot-con');
-//                 }
+                if (entry.target.classList.contains('headings')) {
+                    entry.target.classList.remove('headings-anima');
+                }
+                if (entry.target.classList.contains('foi')) {
+                    entry.target.classList.remove('why-con');
+                }
+                if (entry.target.classList.contains('fot')) {
+                    entry.target.classList.remove('fot-con');
+                }
                 
-//             }
-//         });
-//     };
+            }
+        });
+    };
 
-//     // Create an IntersectionObserver instance
-//     const observerOptions = {
-//         threshold: 0.1 // Adjust as needed to trigger visibility (0.1 = 10% visible)
-//     };
-//     const observer = new IntersectionObserver(observerCallback, observerOptions);
+    // Create an IntersectionObserver instance
+    const observerOptions = {
+        threshold: 0.1 // Adjust as needed to trigger visibility (0.1 = 10% visible)
+    };
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-//     // Observe all headings
-//     headings.forEach(heading => observer.observe(heading));
-//     fadeIn.forEach(fadeIn => observer.observe(fadeIn));
-//     slideUp.forEach(slide => observer.observe(slide));
-// });
+    // Observe all headings
+    headings.forEach(heading => observer.observe(heading));
+    fadeIn.forEach(fadeIn => observer.observe(fadeIn));
+    slideUp.forEach(slide => observer.observe(slide));
+});
 
 function greetings() {
     const time = new Date()
@@ -343,39 +343,39 @@ const path = window.location.pathname
 //     })
 // })
 
-// let currentIndex = 0; 
-// let cardWidt = tesBodies[0].offsetWidth + 13; // Get width of the first card
+let currentIndex = 0; 
+let cardWidt = tesBodies[0].offsetWidth + 13; // Get width of the first card
 
-// dots.forEach((dot, index) => {
-//     dot.addEventListener('click', () => {
-//     currentIndex = index;
-//     updateSlider();
-//     });
-// });
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+    currentIndex = index;
+    updateSlider();
+    });
+});
 
 
-// function updateSlider() {
-//     tesBodies.forEach((body, index) => {
-//         body.style.transform = `translateX(${-currentIndex * cardWidt}px)`; 
-//     });
+function updateSlider() {
+    tesBodies.forEach((body, index) => {
+        body.style.transform = `translateX(${-currentIndex * cardWidt}px)`; 
+    });
 
-//     // Update active dot
-//     dots.forEach(dot => dot.classList.remove('active'));
-//     dots[currentIndex].classList.add('active');
-// }
-// // Initial dot activation
-// dots[0].classList.add('active'); 
+    // Update active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
+}
+// Initial dot activation
+dots[0].classList.add('active'); 
 
-// const autoSlide = () => {
-//     currentIndex = (currentIndex + 1) % tesBodies.length; // Loop back to the first card
-//     updateSlider();
-// };
+const autoSlide = () => {
+    currentIndex = (currentIndex + 1) % tesBodies.length; // Loop back to the first card
+    updateSlider();
+};
 
-// // Start automatic sliding
-// const slideInterval = setInterval(autoSlide, 3500); // Slide every 3 seconds
+// Start automatic sliding
+const slideInterval = setInterval(autoSlide, 3500); // Slide every 3 seconds
 
-// // Pause on hover (optional)
-// tesBodies.forEach(body => {
-//     body.addEventListener('mouseenter', () => clearInterval(slideInterval));
-//     body.addEventListener('mouseleave', () => setInterval(autoSlide, 3500));
-// });
+// Pause on hover (optional)
+tesBodies.forEach(body => {
+    body.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    body.addEventListener('mouseleave', () => setInterval(autoSlide, 3500));
+});
