@@ -4,8 +4,11 @@ const nextBut = document.getElementById('next');
 const service = document.getElementById('services');
 const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
-const navlink = document.querySelectorAll('.nav-item a');
 const mobileNav = document.getElementById('offcanvasNavbar');
+const cards = document.querySelectorAll('.card-con');
+const ser = document.querySelectorAll('.servi'); 
+const ser_pre = document.getElementById('prev-ser');
+const ser_next = document.getElementById('next-ser');
 // const slider = document.querySelector('.tes-slider');
 // const tesBodies = document.querySelectorAll('.tes-body');
 // const dots = document.querySelectorAll('.dot');
@@ -61,7 +64,6 @@ serviceInfo.forEach(con => {
     service.innerHTML += insertSer
 });
 
-const cards = document.querySelectorAll('.card-con');
 let curIndexdex = 0;
 const cardTotal = team.scrollWidth - team.offsetWidth;
 const cardWidth = cards[0].offsetWidth;
@@ -121,228 +123,226 @@ preBut.addEventListener('click', () => {
 
 activeButtons();
 
-const ser = document.querySelectorAll('.servi'); // gets all the cards
-const ser_pre = document.getElementById('prev-ser');
-const ser_next = document.getElementById('next-ser');
 
-let curIndex = 0;
-let cardsPerSlide = 3;
-const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
-const totalCards = ser.length; // Total number of cards
 
-let isDragging = false;
-let startX = 0; // Starting X position of drag
-let currentX = 0; // Current X position during drag
-let translateX = 0; // Tracks the current translateX value
+// let curIndex = 0;
+// let cardsPerSlide = 3;
+// const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
+// const totalCards = ser.length; // Total number of cards
 
-function screenSize() {
-    const screen = window.innerWidth;
+// let isDragging = false;
+// let startX = 0; // Starting X position of drag
+// let currentX = 0; // Current X position during drag
+// let translateX = 0; // Tracks the current translateX value
 
-    if (screen < 800) {
-        cardsPerSlide = 2;
-    }
+// function screenSize() {
+//     const screen = window.innerWidth;
 
-    if (screen < 745) {
-        cardsPerSlide = 1;
-    }
+//     if (screen < 800) {
+//         cardsPerSlide = 2;
+//     }
 
-    updateCardPositions();
-}
+//     if (screen < 745) {
+//         cardsPerSlide = 1;
+//     }
 
-function serviceButtonState() {
-    ser_pre.disabled = curIndex === 0;
-    ser_next.disabled = curIndex >= totalCards - cardsPerSlide;
+//     updateCardPositions();
+// }
+
+// function serviceButtonState() {
+//     ser_pre.disabled = curIndex === 0;
+//     ser_next.disabled = curIndex >= totalCards - cardsPerSlide;
   
-    ser_pre.classList.toggle('disable', ser_pre.disabled);
-    ser_next.classList.toggle('disable', ser_next.disabled);
-}
+//     ser_pre.classList.toggle('disable', ser_pre.disabled);
+//     ser_next.classList.toggle('disable', ser_next.disabled);
+// }
 
-function updateCardPositions() {
-    // Apply translateX to all cards based on curIndex
-    ser.forEach((services) => {
-        services.style.transform = `translateX(${-curIndex * cardWidths}px)`;
-    });
-}
+// function updateCardPositions() {
+//     // Apply translateX to all cards based on curIndex
+//     ser.forEach((services) => {
+//         services.style.transform = `translateX(${-curIndex * cardWidths}px)`;
+//     });
+// }
 
-function nextCardSlide(direction) {
-    // Update curIndex based on direction
-    curIndex = Math.max(0, Math.min(totalCards - cardsPerSlide, curIndex + direction));
-    updateCardPositions();
-    serviceButtonState()
-}
+// function nextCardSlide(direction) {
+//     // Update curIndex based on direction
+//     curIndex = Math.max(0, Math.min(totalCards - cardsPerSlide, curIndex + direction));
+//     updateCardPositions();
+//     serviceButtonState()
+// }
 
-// Dragging functionality
-function handleDragStart(event) {
-    isDragging = true;
-    startX = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
-    translateX = -curIndex * cardWidths; // Set initial translateX value
-}
+// // Dragging functionality
+// function handleDragStart(event) {
+//     isDragging = true;
+//     startX = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
+//     translateX = -curIndex * cardWidths; // Set initial translateX value
+// }
 
-function handleDragMove(event) {
-    if (!isDragging) return;
-    const currentPos = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
-    const deltaX = currentPos - startX;
-    const dragTranslate = translateX + deltaX;
+// function handleDragMove(event) {
+//     if (!isDragging) return;
+//     const currentPos = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+//     const deltaX = currentPos - startX;
+//     const dragTranslate = translateX + deltaX;
 
-    ser.forEach((services) => {
-        services.style.transform = `translateX(${dragTranslate}px)`;
-        services.style.transition = 'none'; // Disable transition during drag
-    });
-}
+//     ser.forEach((services) => {
+//         services.style.transform = `translateX(${dragTranslate}px)`;
+//         services.style.transition = 'none'; // Disable transition during drag
+//     });
+// }
 
-function handleDragEnd(event) {
-    if (!isDragging) return;
-    const endX = event.type === 'touchend' ? event.changedTouches[0].clientX : event.clientX;
-    const deltaX = endX - startX;
+// function handleDragEnd(event) {
+//     if (!isDragging) return;
+//     const endX = event.type === 'touchend' ? event.changedTouches[0].clientX : event.clientX;
+//     const deltaX = endX - startX;
 
-    if (deltaX > 50) {
-        // Dragged right
-        nextCardSlide(-1);
-    } else if (deltaX < -50) {
-        // Dragged left
-        nextCardSlide(1);
-    } else {
-        // Return to original position if drag is too small
-        updateCardPositions();
-    }
+//     if (deltaX > 50) {
+//         // Dragged right
+//         nextCardSlide(-1);
+//     } else if (deltaX < -50) {
+//         // Dragged left
+//         nextCardSlide(1);
+//     } else {
+//         // Return to original position if drag is too small
+//         updateCardPositions();
+//     }
 
-    isDragging = false;
-}
+//     isDragging = false;
+// }
 
-// Initial setup
-screenSize();
-updateCardPositions();
-serviceButtonState()
+// // Initial setup
+// screenSize();
+// updateCardPositions();
+// serviceButtonState()
 
-// Event listeners for buttons
-ser_next.addEventListener('click', () => {
-    if (!ser_next.disabled) {
-        ser_next.classList.add('active1');
-        ser_next.classList.remove('disable');
-        ser_pre.classList.remove('active1');
-    } else {
-        ser_next.classList.remove('active1');
-        ser_pre.classList.add('active1');
-        ser_next.classList.add('disable');
-    }
-    nextCardSlide(1)
-});
+// // Event listeners for buttons
+// ser_next.addEventListener('click', () => {
+//     if (!ser_next.disabled) {
+//         ser_next.classList.add('active1');
+//         ser_next.classList.remove('disable');
+//         ser_pre.classList.remove('active1');
+//     } else {
+//         ser_next.classList.remove('active1');
+//         ser_pre.classList.add('active1');
+//         ser_next.classList.add('disable');
+//     }
+//     nextCardSlide(1)
+// });
 
-ser_pre.addEventListener('click', () =>  {
-    if (!ser_pre.disabled) {
-        ser_pre.classList.add('active1');
-        ser_next.classList.remove('active1');
-        ser_pre.classList.remove('disable');
-    } else {
-        ser_pre.classList.remove('active1');
-        ser_next.classList.add('active1');
-        ser_pre.classList.add('disable');
-    }
-    nextCardSlide(-1)
-});
+// ser_pre.addEventListener('click', () =>  {
+//     if (!ser_pre.disabled) {
+//         ser_pre.classList.add('active1');
+//         ser_next.classList.remove('active1');
+//         ser_pre.classList.remove('disable');
+//     } else {
+//         ser_pre.classList.remove('active1');
+//         ser_next.classList.add('active1');
+//         ser_pre.classList.add('disable');
+//     }
+//     nextCardSlide(-1)
+// });
 
-// Drag and touch events
-const cardContainer = document.querySelector('.card-container'); // Assuming the container has class 'card-container'
-cardContainer.addEventListener('mousedown', handleDragStart);
-cardContainer.addEventListener('mousemove', handleDragMove);
-cardContainer.addEventListener('mouseup', handleDragEnd);
-cardContainer.addEventListener('mouseleave', handleDragEnd); // Handle drag end if cursor leaves container
-cardContainer.addEventListener('touchstart', handleDragStart);
-cardContainer.addEventListener('touchmove', handleDragMove);
-cardContainer.addEventListener('touchend', handleDragEnd);
+// // Drag and touch events
+// const cardContainer = document.querySelector('.card-container'); // Assuming the container has class 'card-container'
+// cardContainer.addEventListener('mousedown', handleDragStart);
+// cardContainer.addEventListener('mousemove', handleDragMove);
+// cardContainer.addEventListener('mouseup', handleDragEnd);
+// cardContainer.addEventListener('mouseleave', handleDragEnd); // Handle drag end if cursor leaves container
+// cardContainer.addEventListener('touchstart', handleDragStart);
+// cardContainer.addEventListener('touchmove', handleDragMove);
+// cardContainer.addEventListener('touchend', handleDragEnd);
 
-window.addEventListener('resize', screenSize);
+// window.addEventListener('resize', screenSize);
 
-// Checking if an element is in view port
-document.addEventListener("DOMContentLoaded", () => {
-    const headings = document.querySelectorAll('.headings');
-    const slideUp = document.querySelectorAll('.fot');
-    const fadeIn = document.querySelectorAll('.foi')
+// // Checking if an element is in view port
+// document.addEventListener("DOMContentLoaded", () => {
+//     const headings = document.querySelectorAll('.headings');
+//     const slideUp = document.querySelectorAll('.fot');
+//     const fadeIn = document.querySelectorAll('.foi')
 
-    // Create a function to handle visibility
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.classList.contains('headings')) {
-                    entry.target.classList.add('headings-anima'); // Add animation class for headings
-                }
-                if (entry.target.classList.contains('foi')) {
-                    entry.target.classList.add('why-con'); // Add animation class for why
-                }
-                if (entry.target.classList.contains('fot')) {
-                    entry.target.classList.add('fot-con'); // Add animation class for footer
-                }
-            } else {
-                // Remove animation classes if needed when the element leaves the viewport
+//     // Create a function to handle visibility
+//     const observerCallback = (entries, observer) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 if (entry.target.classList.contains('headings')) {
+//                     entry.target.classList.add('headings-anima'); // Add animation class for headings
+//                 }
+//                 if (entry.target.classList.contains('foi')) {
+//                     entry.target.classList.add('why-con'); // Add animation class for why
+//                 }
+//                 if (entry.target.classList.contains('fot')) {
+//                     entry.target.classList.add('fot-con'); // Add animation class for footer
+//                 }
+//             } else {
+//                 // Remove animation classes if needed when the element leaves the viewport
                 
-                if (entry.target.classList.contains('headings')) {
-                    entry.target.classList.remove('headings-anima');
-                }
-                if (entry.target.classList.contains('foi')) {
-                    entry.target.classList.remove('why-con');
-                }
-                if (entry.target.classList.contains('fot')) {
-                    entry.target.classList.remove('fot-con');
-                }
+//                 if (entry.target.classList.contains('headings')) {
+//                     entry.target.classList.remove('headings-anima');
+//                 }
+//                 if (entry.target.classList.contains('foi')) {
+//                     entry.target.classList.remove('why-con');
+//                 }
+//                 if (entry.target.classList.contains('fot')) {
+//                     entry.target.classList.remove('fot-con');
+//                 }
                 
-            }
-        });
-    };
+//             }
+//         });
+//     };
 
-    // Create an IntersectionObserver instance
-    const observerOptions = {
-        threshold: 0 // Adjust as needed to trigger visibility (0.1 = 10% visible)
-    };
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+//     // Create an IntersectionObserver instance
+//     const observerOptions = {
+//         threshold: 0.1 // Adjust as needed to trigger visibility (0.1 = 10% visible)
+//     };
+//     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Observe all headings
-    headings.forEach(heading => observer.observe(heading));
-    fadeIn.forEach(fadeIn => observer.observe(fadeIn));
-    slideUp.forEach(slide => observer.observe(slide));
-});
+//     // Observe all headings
+//     headings.forEach(heading => observer.observe(heading));
+//     fadeIn.forEach(fadeIn => observer.observe(fadeIn));
+//     slideUp.forEach(slide => observer.observe(slide));
+// });
 
-function greetings() {
-    const time = new Date()
-    const hour = time.getHours()
-    let message;
+// function greetings() {
+//     const time = new Date()
+//     const hour = time.getHours()
+//     let message;
 
-    if(hour >= 4 && hour <= 11){
-        message = 'Good Morning'
-    } else if(hour >= 12 && hour <= 15) {
-        message = 'Good Afternoon'
-    } else if(hour >= 16 && hour <= 21){
-        message = 'Good Evening'
-    } else {
-        message = 'Good Night'
-    }
+//     if(hour >= 4 && hour <= 11){
+//         message = 'Good Morning'
+//     } else if(hour >= 12 && hour <= 15) {
+//         message = 'Good Afternoon'
+//     } else if(hour >= 16 && hour <= 21){
+//         message = 'Good Evening'
+//     } else {
+//         message = 'Good Night'
+//     }
 
-    return message
-}
+//     return message
+// }
 
-whatsApp.addEventListener('click', () => {
-    const phoneNumber = '+923226933463'
-    const msg = greetings() + ' sir'
-    const encodedMsg = encodeURIComponent(msg); 
-    const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
+// whatsApp.addEventListener('click', () => {
+//     const phoneNumber = '+923226933463'
+//     const msg = greetings() + ' sir'
+//     const encodedMsg = encodeURIComponent(msg); 
+//     const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
 
-    window.open(url, '_blank')
-})
+//     window.open(url, '_blank')
+// })
 
-const path = window.location.pathname
+// const path = window.location.pathname
 
-navLink.forEach(navL => {
-    const herf = navL.querySelector('a').getAttribute('href')
+// navLink.forEach(navL => {
+//     const herf = navL.querySelector('a').getAttribute('href')
 
-    if(path === herf) {
-        navL.classList.add('active')
-    }
+//     if(path === herf) {
+//         navL.classList.add('active')
+//     }
 
-    navL.addEventListener('click', (e) => {
-        navLink.forEach(link => link.classList.remove('active'))
-        navL.classList.add('active')
-        mobileNav.classList.remove('show')
-    })
-})
+//     navL.addEventListener('click', (e) => {
+//         navLink.forEach(link => link.classList.remove('active'))
+//         navL.classList.add('active')
+//         mobileNav.classList.remove('show')
+//     })
+// })
 
 // let currentIndex = 0; 
 // let cardWidt = tesBodies[0].offsetWidth + 13; // Get width of the first card
