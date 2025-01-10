@@ -340,11 +340,6 @@ navLink.forEach(navL => {
     navL.addEventListener('click', (e) => {
         navLink.forEach(link => link.classList.remove('active'))
         navL.classList.add('active')
-    })
-})
-
-navlink.forEach(nav => {
-    nav.addEventListener('click', () => {
         mobileNav.classList.remove('show')
     })
 })
