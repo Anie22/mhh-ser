@@ -300,48 +300,48 @@ window.addEventListener('resize', screenSize);
 //     slideUp.forEach(slide => observer.observe(slide));
 // });
 
-// function greetings() {
-//     const time = new Date()
-//     const hour = time.getHours()
-//     let message;
+function greetings() {
+    const time = new Date()
+    const hour = time.getHours()
+    let message;
 
-//     if(hour >= 4 && hour <= 11){
-//         message = 'Good Morning'
-//     } else if(hour >= 12 && hour <= 15) {
-//         message = 'Good Afternoon'
-//     } else if(hour >= 16 && hour <= 21){
-//         message = 'Good Evening'
-//     } else {
-//         message = 'Good Night'
-//     }
+    if(hour >= 4 && hour <= 11){
+        message = 'Good Morning'
+    } else if(hour >= 12 && hour <= 15) {
+        message = 'Good Afternoon'
+    } else if(hour >= 16 && hour <= 21){
+        message = 'Good Evening'
+    } else {
+        message = 'Good Night'
+    }
 
-//     return message
-// }
+    return message
+}
 
-// whatsApp.addEventListener('click', () => {
-//     const phoneNumber = '+923226933463'
-//     const msg = greetings() + ' sir'
-//     const encodedMsg = encodeURIComponent(msg); 
-//     const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
+whatsApp.addEventListener('click', () => {
+    const phoneNumber = '+923226933463'
+    const msg = greetings() + ' sir'
+    const encodedMsg = encodeURIComponent(msg); 
+    const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
 
-//     window.open(url, '_blank')
-// })
+    window.open(url, '_blank')
+})
 
-// const path = window.location.pathname
+const path = window.location.pathname
 
-// navLink.forEach(navL => {
-//     const herf = navL.querySelector('a').getAttribute('href')
+navLink.forEach(navL => {
+    const herf = navL.querySelector('a').getAttribute('href')
 
-//     if(path === herf) {
-//         navL.classList.add('active')
-//     }
+    if(path === herf) {
+        navL.classList.add('active')
+    }
 
-//     navL.addEventListener('click', (e) => {
-//         navLink.forEach(link => link.classList.remove('active'))
-//         navL.classList.add('active')
-//         mobileNav.classList.remove('show')
-//     })
-// })
+    navL.addEventListener('click', (e) => {
+        navLink.forEach(link => link.classList.remove('active'))
+        navL.classList.add('active')
+        mobileNav.classList.remove('show')
+    })
+})
 
 // let currentIndex = 0; 
 // let cardWidt = tesBodies[0].offsetWidth + 13; // Get width of the first card
