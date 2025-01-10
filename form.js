@@ -63,7 +63,7 @@ function renderHeroContent() {
         `
 
     } else {
-        heading.innerHTML = `
+        heroHeading.innerHTML = `
             <h4 class="h4">We <span>Provide</span> Best <span>IT</span> Solutions</h4>
         `;
         heroBody.innerHTML = `
