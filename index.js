@@ -5,7 +5,6 @@ const service = document.getElementById('services');
 const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
 const mobileNav = document.getElementById('offcanvasNavbar');
-const ser = document.querySelectorAll('.servi'); 
 const ser_pre = document.getElementById('prev-ser');
 const ser_next = document.getElementById('next-ser');
 // const slider = document.querySelector('.tes-slider');
@@ -124,8 +123,7 @@ preBut.addEventListener('click', () => {
 
 activeButtons();
 
-
-
+const ser = document.querySelectorAll('.servi'); 
 let curIndex = 0;
 let cardsPerSlide = 3;
 const cardWidths = ser[0].offsetWidth + 23; // Get the width of one card
