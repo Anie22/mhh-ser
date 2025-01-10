@@ -5,7 +5,6 @@ const service = document.getElementById('services');
 const whatsApp = document.getElementById('whatsapp');
 const navLink = document.querySelectorAll('.nav-item');
 const mobileNav = document.getElementById('offcanvasNavbar');
-const cards = document.querySelectorAll('.card-con');
 const ser = document.querySelectorAll('.servi'); 
 const ser_pre = document.getElementById('prev-ser');
 const ser_next = document.getElementById('next-ser');
@@ -64,6 +63,8 @@ serviceInfo.forEach(con => {
     service.innerHTML += insertSer
 });
 
+
+const cards = document.querySelectorAll('.card-con');
 let curIndexdex = 0;
 const cardTotal = team.scrollWidth - team.offsetWidth;
 const cardWidth = cards[0].offsetWidth;
