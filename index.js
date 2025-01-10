@@ -7,9 +7,9 @@ const navLink = document.querySelectorAll('.nav-item');
 const mobileNav = document.getElementById('offcanvasNavbar');
 const ser_pre = document.getElementById('prev-ser');
 const ser_next = document.getElementById('next-ser');
-// const slider = document.querySelector('.tes-slider');
-// const tesBodies = document.querySelectorAll('.tes-body');
-// const dots = document.querySelectorAll('.dot');
+const slider = document.querySelector('.tes-slider');
+const tesBodies = document.querySelectorAll('.tes-body');
+const dots = document.querySelectorAll('.dot');
 
 const teamsImg = [
     {img: 'man.svg'},
@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Create an IntersectionObserver instance
     const observerOptions = {
-        threshold: 0.1 // Adjust as needed to trigger visibility (0.1 = 10% visible)
+        threshold: 0 // Adjust as needed to trigger visibility (0.1 = 10% visible)
     };
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
