@@ -19,7 +19,7 @@ const teamsImg = [
     {img: 've.svg'},
     {img: 'fsw.svg'},
     {img: 'boss.svg'},
-    {img: 'legal.svg'},
+    {img: 'legal.svg'}
 ];
 
 const serviceInfo = [
