@@ -329,19 +329,19 @@ whatsApp.addEventListener('click', () => {
 
 const path = window.location.pathname
 
-navLink.forEach(navL => {
-    const herf = navL.querySelector('a').getAttribute('href')
+// navLink.forEach(navL => {
+//     const herf = navL.querySelector('a').getAttribute('href')
 
-    if(path === herf) {
-        navL.classList.add('active')
-    }
+//     if(path === herf) {
+//         navL.classList.add('active')
+//     }
 
-    navL.addEventListener('click', (e) => {
-        navLink.forEach(link => link.classList.remove('active'))
-        navL.classList.add('active')
-        mobileNav.classList.remove('show')
-    })
-})
+//     navL.addEventListener('click', (e) => {
+//         navLink.forEach(link => link.classList.remove('active'))
+//         navL.classList.add('active')
+//         mobileNav.classList.remove('show')
+//     })
+// })
 
 // let currentIndex = 0; 
 // let cardWidt = tesBodies[0].offsetWidth + 13; // Get width of the first card
