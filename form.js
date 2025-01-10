@@ -108,7 +108,7 @@ function attachFormLogic() {
     const warning2 = form.querySelector('#warning2');
     const warning3 = form.querySelector('#warning3');
     const loader = document.getElementById('loader');
-    const body = document.body;
+    const body = document.getElementById('body');
     const messageBox = document.getElementById('msg-box');
     const msgContent = document.getElementById('api-res-msg');
 
