@@ -366,16 +366,26 @@ function updateSlider() {
 // Initial dot activation
 dots[0].classList.add('active'); 
 
-const autoSlide = () => {
-    currentIndex = (currentIndex + 1) % tesBodies.length; // Loop back to the first card
-    updateSlider();
-};
+function mobileSlide() {
+    const mobile = window.innerWidth < 992
 
-// Start automatic sliding
-const slideInterval = setInterval(autoSlide, 3500); // Slide every 3 seconds
+    if(mobile) {
+        const autoSlide = () => {
+            currentIndex = (currentIndex + 1) % tesBodies.length; // Loop back to the first card
+            updateSlider();
+        };
+        
+        // Start automatic sliding
+        const slideInterval = setInterval(autoSlide, 3500); // Slide every 3 seconds
+        
+        // Pause on hover (optional)
+        tesBodies.forEach(body => {
+            body.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            body.addEventListener('mouseleave', () => setInterval(autoSlide, 3500));
+        });
+    }
+}
 
-// Pause on hover (optional)
-tesBodies.forEach(body => {
-    body.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    body.addEventListener('mouseleave', () => setInterval(autoSlide, 3500));
-});
+mobileSlide();
+
+window.addEventListener('resize', mobileSlide)
