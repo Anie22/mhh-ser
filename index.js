@@ -297,8 +297,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Observe all headings
     headings.forEach(heading => observer.observe(heading));
-    fadeIn.forEach(fadeIn => observer.observe(fadeIn))
-    slideUp.forEach(slide => observer.observe(slide))
+    fadeIn.forEach(fadeIn => observer.observe(fadeIn));
+    slideUp.forEach(slide => observer.observe(slide));
 });
 
 function greetings() {
